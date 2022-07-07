@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+
+<html>
 <!DOCTYPE html lang="en">
 <html>
 
@@ -7,468 +10,1659 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="tooling/smpte.js"></script>
   <link rel="stylesheet" href="tooling/smpte.css" />
-  <meta itemprop="pubType" content="AG" />
-  <meta itemprop="pubNumber" content="25" />
+  <meta itemprop="pubType" content="GOV" />
+  <meta itemprop="pubNumber" content="0" />
   <meta itemprop="pubState" content="published" />
-  <meta itemprop="pubDateTime" content="2022-07-05" />
-  <title>Use of JSON in Engineering Documents</title>
+  <meta itemprop="pubDateTime" content="2015-07-01" />
+  <title>Standards Operations Manual</title>
 </head>
 
 <body>
+  
+  <section id='sec-foreword'></section>
+  
+  <section id='sec-scope'>
+    <h2>Standards Purpose and Scope</h2>
 
-  <section id="sec-foreword"></section>
+<p>The purpose of this Standards Operations Manual is to define the duties of Engineering and Standards officers, staff, chairs and participants and to define the policies and procedures for developing and maintaining SMPTE’s <a>Engineering Documents</a>. The primary audience for these policies and procedures is the <a>Society</a> staff and <a>Society</a> members who monitor or participate in the standards development work.</p>
 
-  <section id="sec-scope">
-    <h2>Scope</h2>
-    <p>This Administrative Guideline specifies selected uses of the JavaScript Object Notation (JSON) in SMPTE
-      Engineering Documents.</p>
+<p>The <a>Society</a> is an impartial developer of standards and other <a>Engineering Documents</a> in the fields of motion images, television, motion pictures, and related technology. This work includes all technical aspects of images being produced, processed, reproduced, distributed via contribution circuits or via storage media, and viewed on a screen or emissive display device, including accompanying audio, data, metadata, and control signals.  The <a>Society</a>’s <a>Engineering Documents</a> are designed and adopted for the purpose of promoting and furthering the interests of the international community.  The existence of an <a>Engineering Document</a> of the <a>Society</a> does not create an obligation for any <a>Society</a> member or nonmember to adhere to it.</p>
+
+<p>SMPTE <a>Standards</a> shall be developed in accordance with applicable antitrust and competition laws, and meetings amongst competitors to develop SMPTE <a>Standards</a> are to be conducted in accordance with these laws.</p>
+
+<p>The <a>Society</a> shall evaluate and document, as appropriate, both the needs and applications of new and emerging technologies relevant to the fields of motion images, television, motion picture, and related technologies. The <a>Society</a> shall explore the needs and interests brought about by these technologies and shall assume a leadership role in any necessary standardization efforts.</p>
+
+<p>The <a>Society</a> serves as a registrar of identifiers needed by the motion imaging and related industries.</p>
+
+<p>The <a>Society</a> recognizes the importance and acceptance of SMPTE <a>Engineering Documents</a> as international publications. To maintain this position, the <a>Society</a> shall strive to harmonize national <a>Engineering Document</a> development with international activities and to interrelate with other <a>Engineering Document</a> developing organizations, drafting committees, and technical organizations.</p>
+
+<p>The <a>Society</a> recognizes and shall maintain its position of influence in the deliberations of other standardization organizations within the fields of television, motion picture, and related technologies. To accomplish this purpose, the <a>Society</a> shall maintain its membership and administrative roles in such other standardization organizations as found appropriate by the <a>Board of Governors</a>.</p>
+
   </section>
 
   <section id="sec-conformance"></section>
+  
+  <section id="Organization">
+    <h2>Organization</h2>
+	
+	<section id="Standards-Vice-President">
+	<h3><dfn data-lt="Standards Vice President">Standards Vice President</dfn ></h3>
+	
+	<p>The <a>Standards Vice President</a> shall be responsible for the coordination and supervision of all engineering activities and objectives under this Standards Operations Manual, as authorized by <a href="https://www.smpte.org/about/bylaws">the Society Bylaws</a>. The duties of the <a>Standards Vice President</a> are described in <a href="https://www.smpte.org/sites/default/files/SMPTE_Governance_Ops_Manual_v2_APPROVED.pdf">the Governance Operations Manual</a> and in this Standards Operations Manual.</p>
+</section>
+	
+	
+    <section id="Standards-Director">
+      <h3><dfn data-lt="Standards Director|Standards Directors">Standards Directors</dfn></h3>
 
-  <section id="sec-normative-references">
-    <ul>
-      <li><cite id="bib-ietf-rfc-3986">IETF RFC 3986</cite>, Uniform Resource
-      Identifiers (URI): Generic Syntax, T. Berners-Lee, et al., January 2005.
-      http://www.ietf.org/rfc/rfc3986.txt</li>
-      <li><cite id="bib-ietf-rfc-5234">IETF RFC 5234</cite>, “Augmented BNF for
-      Syntax Specifications: ABNF”, D. Crocker, January 2008.
-      https://www.rfc-editor.org/rfc/rfc5234.txt</li>
-      <li><cite id="bib-ietf-rfc-7405">IETF RFC 7405</cite>, “Case-Sensitive
-      String Support in ABNF”, P. Kyzivat, December 2014.
-      https://datatracker.ietf.org/doc/html/rfc7405.txt</li>
-      <li><cite id="bib-ietf-rfc-8259">IETF RFC 8259</cite>, The JavaScript
-      Object Notation (JSON) Data Interchange Format, T. Bray,
-      http://www.ietf.org/rfc/rfc8259.txt</li>
-    </ul>
-  </section>
+		<p><a>Standards Directors</a> are appointed by the <a>Standards Vice President</a>, as provided in <a href="https://www.smpte.org/about/policies-and-governance">the Governance Operations Manual</a> and in this Standards Operations Manual. <a>Standards Directors</a> shall be Members.</p>
 
-  <section id="sec-smpte-json-structures">
-    <h2>SMPTE JSON structures</h2>
-    <section>
-      <h3>Overview (informative)</h3> 
-      The JSON Schema resource applicable to a JSON structure can specify constraints to which the structure is expected to conform.
-    </section>
-    
-    <section>
-      <h3>SMPTE JSON Structures</h3>
-      
-      <p>
-        A SMPTE JSON structure is any data structure that (a) is specified by an
-        Engineering Document and (b) conforms to <a
-        href="#bib-ietf-rfc-8259"></a> (i.e., a JSON document), whether within
-        the prose or as an Additional Element.
-      </p>
-      
-      <p>
-        The structure of each SMPTE JSON structure shall be normatively specified
-        the Engineering Document.
-      </p>
-      <p>
-        Each SMPTE JSON structure should be informatively specified by a JSON Schema
-        resource, which may be a SMPTE JSON Schema resource (see section 5), using
-        the JSON Schema language as specified in <a href="#bib-draft-bhutton-json-schema-00"></a>.
-      </p>
-    </section>
-    
-    <section>
-      <h3>Encoding</h3>
-      
-      <p>A SMPTE JSON structure is encoded using UTF-8 and does not include a
-      byte order mark (BOM), as specified in <a
-      href="#bib-ietf-rfc-8259"></a>.</p>
-    </section>
-    
-    <section>
-      <h3>Example Instances</h3>
-      
-      <p>All example instance JSON structures shall be informative.</p>
-      
-      <p>All example instance SMPTE JSON structures shall be valid with respect to
-      the corresponding SMPTE JSON Schema resource, where one is provided.</p>
-      
-      <p>If a SMPTE JSON Schema resource is provided, it should be used to
-      validate each corresponding example instance SMPTE JSON structure, as a test
-      of both the instance and the resource.</p>
-    </section>
-    
-  </section>
+		<p>Each <a>Standards Director</a> shall be responsible for working with all <a>Technology Committee</a> Chairs to organize and coordinate meeting schedules and to ensure that work is correctly placed and is being executed in a timely manner.</p>
 
-<section>
-  <h2>SMPTE JSON Schema resources</h2>
-  
-  <section>
-    <h3>Introduction (informative)</h3>
-    
-    <p>Using the formal language of JSON Schema, descriptions of conformance
-    requirements for JSON structures can avoid some of the ambiguity inherent with
-    using English prose alone, while allowing the use of existing commercial tools
-    to facilitate testing and validation. It can also represent a significant
-    convenience to implementers, for example by supporting the ability to
-    automatically validate structures.</p>
-    
-    <p>A JSON Schema resource is identified by its canonical URI. Canonical URIs
-    provide an unambiguous and human-readable link to the specifications define
-    these schemas.</p>
-    
-    <p>Where a JSON Schema resource relies on another JSON Schema resource to
-    specify constraints on substructures, the other JSON Schema is identified by its
-    canonical URI.  </p>
-  </section>
-  
-  <section>
-    <h3>Canonical URI</h3>
-    
-    <section id="sec-id-keyword">
-      <h4><code>$id</code> Keyword</h4>
-      
-      <p>A SMPTE JSON Schema resource shall use the <code>$id</code> keyword in the root schema
-      object, thereby providing the canonical URI for the JSON root schema.</p>
+		<p>From time-to-time, the <a>Standards Vice President</a> may delegate responsibilities to the <a>Standards Directors</a> when their areas of expertise would be beneficial to the activities of the <a>Society</a>.</p>
+
     </section>
-    
-    <section>
-      <h4>Canonical URI Syntax</h4>
+
+    <section id="Director-of-Engineering-and-Home-Office-Engineering-Department">
+      <h3><dfn data-lt="Director of Engineering">Director of Engineering</dfn> and Home Office Engineering Department</h3>
+<p>The <a>Director of Engineering</a> is an employee of the <a>Society</a> and supervisor of the Home Office Engineering Department. The <a>Director of Engineering</a> is administratively accountable to the Executive Director but operationally accountable to the <a>Standards Vice President</a>.</p>
+
+<p>The <a>Director of Engineering</a> shall:</p>
+
+<ol type="a">
+	<li>Represent the <a>Standards Vice President</a> or serve as alternate to the <a>Standards Vice President</a> to the extent authorized by that officer;</li>
+	<li>Administer the functions of the Home Office Engineering Department;</li>
+	<li>Conduct the <a>Test Materials</a> and <a>Engineering Document</a> publication programs;</li>
+	<li>Administratively and technically support the <a>Technology Committees</a> in developing <a>Engineering Documents</a>;</li>
+	<li>At the direction of the <a>Technology Committees</a>, prepare <a>Engineering Documents</a> for publication;</li>
+	<li>Schedule and organize the standards meetings in cooperation with the <a>Technology Committee</a> Chairs, <a>Standards Directors</a>, and the <a>Standards Vice President</a>;</li>
+	<li>Prepare tutorial reports, glossaries, pamphlets, etc. for publication as instructed by the <a>Standards Vice President</a>;</li>
+	<li>Make available <a>Test Materials</a> for checking, testing, and measuring television and motion picture systems, as directed by the <a>Technology Committees</a>;</li>
+	<li>Act as <a>Delegate</a> or <a>Rapporteur</a> to various national and international bodies, as authorized by the <a>Standards Vice President</a>;</li>
+	<li>Serve as Secretariat to the <a>Standards Committee</a> and ensure that secretarial services are available to the <a>Technology Committees</a>;</li>
+	<li>Facilitate and maintain the SMPTE <a>Registration Authority</a>;</li>
+	<li>Register identifiers and other documentary items;</li>
+	<li>Ensure that <a>Engineering Documents</a> include appropriate specifications for suitable tolerances and references to suitable test methods necessary for proper interpretation and implementation of the documents;</li>
+	<li>Initiate the one-year and five-year Review processes of published documents;</li>
+	<li>Maintain a complete and accurate <a>Technology Committee</a> roster for each Committee;</li>
+	<li>Ensure that the current Standards Operations Manual and Standards <a>Administrative Guidelines</a> are freely available to all interested parties;</li>
+	<li>Publish, from time-to-time, a “Standards Action” email newsletter announcing any new <a>Project</a>, publication or withdrawal of any <a>Engineering Document</a>, Engineering <a>Administrative Guideline</a>, <a>Registered Disclosure Document</a>, Request for Technology, or other significant events;</li>
+	<li>Procure and make available documents from other standards bodies referenced by SMPTE documents;</li>
+	<li>Submit <a>Engineering Documents</a> for consideration by other standardizing bodies when so instructed by the <a>Standards Vice President</a>; and</li>
+	<li>Serve as parliamentarian to the Standards Community.</li>
+</ol>
+		</section>
+
+
+	<section id="Standards-Community">
+        <h3>Standards Community</h3>
+
+        <p>The Standards Community, as described in the <a href="https://www.smpte.org/about/policies-and-governance">Membership Operations Manual</a>, is collectively all members of all <a>Technology Committees</a>. The unqualified term, “Member”, refers to members of the Standards Community. All Members are subject to this Standards Operations Manual and the <a>Administrative Guidelines</a>, specifically including all requirements for confidentiality (see section <a href="#Confidentiality-Policy"></a>) and observance of the Society’s Intellectual Property Policy (see section <a href="#Intellectual-Property-Confidentiality-Policy"></a>). All Members shall be individuals who have paid, or have been exempted from, the <a>Participation Fee</a>. </p>
+
+        <p>Applicants for membership shall submit complete appropriate contact information as requested by the <a>Director of Engineering</a>, all of which shall be subject to the Society’s Privacy Policy. All Members shall provide an email address. Members shall use the same email address for all Committees and <a>Sub Groups</a>.</p>
       
-      The canonical URI shall conform to the <code>SCHEMAID</code> syntax below,
-      specified using <a href="#bib-ietf-rfc-5234"></a> and <a
-      href="#bib-ietf-rfc-7405"></a> and conforming to <a
-      href="#bib-ietf-rfc-3986"></a>.
+        <p>All Members are subject to a Participation Agreement. All Members are subject to the Society Code of Conduct as defined in the <a href="https://www.smpte.org/about/policies-and-governance">Membership Operations Manual</a>.</p>	
+
+        <p>Members may terminate their membership in the Standards Community (and thus all <a>Technology Committees</a>) with written notice to the <a>Director of Engineering</a>.<p>
       
-<pre>
-SCHEMAID = %s"https://www.smpte-ra.org/json-schema/" PUBNUM "/" REVISION [ "/" SHORTNAME]
-SHORTNAME = 1*4("/" 1*(ALPHA / DIGIT / "-" / "_" / ".") )
-PUBNUM = 1*(DIGIT) ["-" 1*(DIGIT)]
-REVISION = STABLEREV
-STABLEREV = 4(DIGIT) [2(DIGIT)]
-</pre>
-      
-      <p><code>PUBNUM</code> shall represent the official publication number of the
-      Engineering Document, without leading zeroes and including a part number, if
-      any, separated by a hyphen, e.g., 456-1.</p>
-      
-      <p><code>SHORTNAME</code> is used when the Engineering Document defines more
-      than one JSON Schema. It may provide a human meaningful designation of the
-      schema, but shall not include any version information.</p>
-      
-      <p>A stable SMPTE JSON Schema canonical URI is a SMPTE JSON Schema
-      canonical URI whose name is such that <code>REVISION</code>:</p>
-      <ul>
-        <li>conforms to <code>STABLEREV</code>, which consists of a year encoded as 4 decimal
-        digits, optionally followed by a month encoded as 2 decimal digits in the
-        range 01-12; and</li>
-        <li>represents the date that the JSON Schema canonical URI first appeared in
-        the Engineering Document, which might be as a Public Committee Draft.</li>
-      </ul>
-      
-      <p class="note">The <code>REVISION</code> component of a stable SMPTE JSON
-      Schema canonical URI does not necessarily correspond to the publication
-      date of its defining Engineering Document. For instance, the defining
-      Engineering Document can be revised in such a way that the contents of the
-      JSON Schema remain unchanged.</p>
-      
-      <p class="note">
-        No changes to SMPTE JSON Schema canonical URI are necessary following a Draft
-        Publication ballot since SMPTE JSON Schema canonical URI are constructed
-        independently of the publication date of the Engineering Document.
-      </p>
-    </section>
-    
-    <section>
-      <h4>Examples (informative)</h4>
-      The following is an example SMPTE JSON Schema resource canonical URI:
-      
-      <pre>https://www.smpte-ra.org/json-schema/456/2021/foo</pre>
-      
-      <p>One can immediately see that the schema "foo" is defined in a SMPTE
-      Engineering Document numbered "456" and initially appeared in the year "2021".
-      One would assume that a "foo" was a well-known artifact to SMPTE members, at
-      least for those that have read Engineering Document number "456". </p>
-      
-      <p>The following is an example SMPTE JSON Schema resource canonical URI, defined
-      in a document with a part designation and that originally appeared in September
-      of 2022:</p>
-      
-      <pre>https://www.smpte-ra.org/json-schema/456-1/202209/foo</pre>
-      
-      <p>The following is a SMPTE JSON Schema resource canonical URI defined in a
-      draft version of the same specification:</p>
-      
-      <pre>https://www.smpte-ra.org/json-schema/456-1/experimental-20211001/foo</pre>
-      
-      <p>The following is not equivalent to the previous name since it is missing the
-      string "www" (though the two URIs can nevertheless resolve to the same resource
-      when used in an HTTP GET query):</p>
-      
-      <pre>https://smpte-ra.org/json-schema/456-1/experimental-20141001/</pre>
-      
-      <p>The following is not a valid SMPTE JSON Schema resource canonical URI,
-      since a fragment is used:</p>
-      
-      <pre>https://www.smpte-ra.org/json-schema/456-1/experimental-20141001/foo#hello</pre>
-    </section>
-    
-    <section>
-      <h4>Registration (informative)</h4>
-      
-      <p>
-        The SMPTE JSON Schema resource canonical URI syntax ensures uniqueness across
-        Engineering Documents, and thus no specific registration steps are required.
-      </p>
-    </section>
-  </section>
-  
-  <section>
-    <h3>Change Policy</h3>
-    
-    An Engineering Document that defines a SMPTE JSON Schema resource should specify
-    whether the schema is mutable, i.e., whether the schema is allowed to change
-    substantially over time without also changing the canonical URI of the SMPTE
-    JSON Schema resource.
-  </section>
-  
-  <section>
-    <h3>Using a SMPTE JSON Schema Resource</h3>
-    
-    <p>A SMPTE JSON Schema resource can be used informatively by an Engineering
-    Document, either by inclusion or by reference.</p>
-    
-    <p class="note">The current specification of JSON Schema, though well-supported, is not a
-    normatively referenceable document per the Standards Operations Manual (section
-    10 Normative References) and AG-03. Thus, provision of SMPTE JSON Schema
-    resources, at this time, is strictly informative.</p>
-  </section>
-  
-  <section>
-    <h3>Precedence</h3>
-    
-    <p>
-      Engineering Documents normatively describe the constraints on a SMPTE JSON
-      structure, including names and values, by their prose. Any Engineering Document
-      providing a SMPTE JSON Schema resource to help validate a structure against
-      those constraints should point out that, in case of a conflict between prose and
-      the JSON Schema resource, the prose takes precedence.
-    </p>
-  </section>
-  
-  <section>
-    <h3>Avoiding Discrepancies</h3>
-    
-    <p>
-      To help avoid discrepancies between the English prose and a SMPTE JSON Schema
-      resource, prose sections should be bound to the related portion of the resource,
-      so that one cannot be modified without the other.
-    </p>
-    
-    <p class="note">
-      One method to bind prose to a SMPTE JSON Schema resource is to include the
-      resource definitions inline within the prose. Another method is for the prose to
-      refer to SMPTE JSON Schema resources specified in appendices or Additional
-      Elements.
-    </p>
-    
-    <p>
-      Any Additional Element that duplicates a SMPTE JSON Schema resource specified in
-      the Prose Element, shall be informative.
-    </p>
-    
-    <p class="note">
-      Informative JSON Schema resource definitions can be provided as examples, e.g.,
-      to demonstrate how to define an extension to another JSON Schema resource
-      through the “additionalProperties” or “additionalItems” keywords.
-    </p>
-  </section>
-  
-  <section id="sec-version">
-    <h3>Version</h3>
-    
-    <p>
-      Whenever a SMPTE JSON Schema resource is provided, the Engineering Document
-      shall provide an informative reference to the JSON Schema language specification
-      to which it conforms (e.g., JSON Schema, as shown in the Bibliography).
-    </p>
-    
-    <p>
-      A SMPTE JSON Schema resource shall use the <code>$schema</code> keyword in the root schema
-      object.
-    </p>
-    
-    <p class="note">
-      the <code>$schema</code> keyword is both used as JSON Schema dialect identifier and
-      as the identifier of a resource which is itself a JSON Schema resource to
-      evaluate conformance to that dialect.
-    </p>
-    
-    <p class="note">
-      JSON Schema resources can comprise subschemas, where portions of a root
-      schema document are separately identifiable by a URI-reference that are not
-      absolute and/or contain non-empty fragments.  For example,
-      <code>https://smpte-ra.org/schemas/2120-2/2021/smpte-tlx-items/definitions/rationalType</code>
-      is a reference to a subschema within the SMPTE JSON Schema resource
-      https://smpte-ra.org/schemas/2120-2/2021/smpte-tlx-items where the subschema
-      represents the constraints for a JSON structure representing a rational value.
-    </p>
-    
-  </section>
-  <section>
-    <h3>External Definitions</h3>
-    
-    <p>
-      The defining document of any externally-defined JSON Schema resource shall be
-      included as an informative reference.
-    </p>
-  </section>
-  
-  <section>
-    <h3>Valid Definitions</h3>
-    
-    <p>
-      All SMPTE JSON Schema resources specified in an Engineering Document shall be
-      valid with respect to the JSON Schema resource(s) identified by the value of the
-      <code>$schema</code> keyword(s) therein.
-    </p>
-    
-    <p>
-      All SMPTE JSON Schema resources should be validated against the meta-schema
-      specified by their <code>$schema</code> keyword(s).
-    </p>
-  </section>
-  
-  <section>
-    <h3>Publication</h3>
-    
-    All Additional Elements of Engineering Documents conforming to JSON Schema shall
-    be publicly retrievable at an HTTP URI chosen by the Director of Engineering.
-  </section>
-  
-  <section id="sec-keyword-order">
-    <h3>Keyword Order</h3>
-    
-    <p>The following keywords should appear as the first keywords in any SMPTE JSON Schema resource in this order:</p>
-    
-    <ul>
-      <li><code>$schema,</code> as specified in <a href="#sec-version"></a></li>
-      <li><code>$id,</code> as specified in <a href="#sec-id-keyword"></a>; and,</li>
-      <li><code>$comment,</code> as specified in <a
-      href="#sec-cc-license-schema-resources"></a>.</li>
-    </ul>
-  </section>
+      <p>Membership in the Standards Community may be terminated by the <a>Director of Engineering</a> if the Director determines that 1) a member’s contact information is not current and the member has been non-responsive for 8 weeks by email and phone; or 2) failure to pay the <a>Participation Fee</a> as required.</p>
+
+      <p>Membership in the Standards Community also may be terminated by the <a>Standards Vice President</a> for serious violations of this Standards Operations Manual. The following process shall pertain: First, the <a>Standards Vice President</a> or Standards Director must have personally observed the violations. Second, a written notice of violation (which may be via email) must have been sent to the Member by the <a>Standards Vice President</a>. If the Member then violates this Operations Manual again within one year of the notice, at that time, the <a>Standards Vice President</a> may terminate the membership in the Standards Community by written notification (which may be by email) and inform the <a>Board of Governors</a> of the action. The terminated Member may appeal to the <a>Board of Governors</a> for reinstatement. In any case, a terminated Member may apply for membership in the Standards Community after a period of one year. </p>
+
+	  
+	 <section id='Participation-Fee'>
+        <h4><dfn data-lt="Participation Fee">Participation Fee</dfn></h4>
+
+        <p>An annual fee (the “<a>Participation Fee</a>”) may be assessed for membership in the Standards Community. As membership in the Standards Community is open to all individuals, there may be a scale of fees based on SMPTE membership level or other considerations. Fees are established by, and may be waived or prorated by, the <a>Director of Engineering</a> based on consideration of individual contributions and financial situation.</p>
+   
+      </section>
+</section>
 </section>
 
-<section>
-  <h2>Copyright and License</h2>
-  
-  <section>
-    <h3>License</h3>
-    
-    <p>
-      Any SMPTE JSON structure or SMPTE JSON Schema resource, whether provided within
-      the prose or as an Additional Element of an Engineering Document, shall be
-      licensed according to <a href="#sec-json-doc-license"></a>.
-    </p>
-    
-    <p class="note">
-      The license portion of Annex A is verbatim the BSD-3-Clause license
-      available at <a href="https://spdx.org/licenses/BSD-3-Clause.html">https://spdx.org/licenses/BSD-3-Clause.html</a>.
-    </p>
+  <section id='Standards-Committees-and-Groups'>
+    <h2>Standards Committees and Groups</h2>
+	
+	<section id="Standards-Committee">
+	<h3><dfn data-lt="Standards Committee">Standards Committee</dfn></h3>
+
+<p>The scope and operation of the Standards Committee shall be governed by the following provisions:</p>	
+<ol type="a">
+	<li>There shall be a single <a>Standards Committee</a> at the top of a hierarchy of <a>Technology Committees</a> and <a>Sub Groups</a>, constituted as and having the responsibilities described in this section.</li>
+	<li>As an advisory committee, the <a>Standards Committee</a> shall advise suitable actions for consideration by the <a>Standards Vice President</a> in the fulfillment of the engineering responsibilities of that officer.</li>
+	<li>The <a>Standards Committee</a> shall approve the establishment and dissolution of <a>Technology Committees</a> and the <a>Standards Vice President</a> shall notify the <a>Board of Governors</a> of such actions.</li>
+	<li>The <a>Standards Committee</a> shall determine the Scopes of <a>Technology Committees</a> and shall oversee the work of all <a>Technology Committees</a> to ensure that their work falls within the appropriate Scopes.</li>
+	<li>As an <a>Engineering Document</a> Review committee, the <a>Standards Committee</a> shall Review proposed new work items and documents proposed to be published, amended, reaffirmed, revised, stabilized, or  <a>Withdrawn</a>, for the purpose of determining that all appropriate and necessary procedures were followed and that the documents meet the requirements for <a>Society</a> sponsorship.</li>
+	<li>Where work is appropriate to the <a>Society</a>'s interests and not covered by a standing <a>Technology Committee</a>, the <a>Standards Committee</a> may establish <a>Sub Groups</a> that report to it to fulfill engineering needs.</li>
+	<li>The <a>Standards Committee</a> shall approve all Standards <a>Administrative Guidelines</a> prior to publication.</li>
+	<li>The <a>Standards Committee</a> shall serve as the focal point for <a>Liaison</a> communications and establish <a>Liaison Groups</a> as needed.</li>
+	<li>Members of the <a>Standards Committee</a> shall be Active members of the <a>Society</a>, as defined in the <a href="https://www.smpte.org/about/policies-and-governance">Membership Operations Manual</a>, shall be members of the Standards Community, and shall include:</li>
+
+	<ol type="i">
+		<li>the <a>Standards Vice President</a> (Chair);</li>
+		<li>the <a>Standards Directors</a>;</li>
+		<li>the immediate past <a>Standards Vice President</a>;</li>
+		<li>the Chairs of the <a>Technology Committees</a>;</li>
+		<li>at the discretionary invitation of the <a>Standards Vice President</a>, the Chairs of <a>Sub Groups</a> established by the <a>Standards Committee</a>, and</li>
+		<li>the <a>Director of Engineering</a>.</li>
+	</ol>
+
+	<li>In addition, the <a>Standards Committee</a> may include up to four additional members knowledgeable in standards activities, as appointed by the <a>Standards Vice President</a>. The <a>Board of Governors</a> shall be notified promptly of such appointments.</li>
+	<li>All members of the <a>Standards Committee</a> shall be equal voting members, and there shall be only one category of membership.</li>
+	<li>Any member of the <a>Board of Governors</a> may attend <a>Standards Committee</a> meetings as a <a>Guest</a>.</li>
+	<li>The <a>Standards Committee</a> shall meet in person at least once per year and otherwise by telephone or in person as deemed necessary by its Chair. The <a>Standards Committee</a> shall follow the same process rules as for <a>Technology Committees</a>. At the discretion of the Chair, <a>Guests</a> may observe meetings of the <a>Standards Committee</a>.</li>
+	<li>To facilitate fulfillment of their responsibilities with respect to the operation of the <a>Standards Committee</a>, all members of the <a>Standards Committee</a> shall become <a>Observer Members</a> of all <a>Technology Committees</a> except those in which they have elected to participate as <a>Participant Members</a>. Except for the inability to terminate their membership, they are otherwise subject to all of the provisions for membership in such <a>Technology Committees</a>.</li>
+</ol>
+
   </section>
-  
-  <section id="sec-cc-license-schema-resources">
-    <h3>Copyright and License in SMPTE JSON Schema resources</h3>
-    
-    Any SMPTE JSON Schema resource shall include the copyright and license
-    provided in <a href="#sec-json-doc-license"></a> in the form of the
-    <code>$comment</code> element specified in <a href="#sec-cc-license-element"></a>.
-  </section>
-</section>
+		
+	<section id="Technology-Committees">
+        <h3><dfn data-lt="Technology Committee|Technology Committees">Technology Committees</dfn></h3>
+		
 
-<section class="annex" id="sec-json-doc-license">
-  <h2>JSON Document License</h2>
-<pre>
-Copyright (c), Society of Motion Pictures and Television Engineers. 
+	 <section id='TC-Purpose-and-Scope'>
+        <h4>Purpose and Scope</h4>
 
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met: 
+        <p>A <a>Technology Committee</a> shall be the due process <a>Consensus Body</a> for all <a>Engineering Documents</a> within its defined scope. The <a>Technology Committee</a> Chair(s) and the <a>Participant Members</a> are responsible for accepting and advancing all assigned work by following this Standards Operations Manual.</p>
 
-1. Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer. 
+		<p>The general scope of all <a>Technology Committees</a> is to develop SMPTE <a>Engineering Documents</a>; to Review existing documents to ensure that they are current with established engineering practices and are compatible with international <a>Engineering Documents</a>, where possible; to recommend and develop test specifications, methods, and materials; and to prepare tutorial material on engineering subjects for publication in the SMPTE Journal or for other means of dissemination benefiting the <a>Society</a> and the industry.</p>
 
-2. Redistributions in binary form must reproduce the above copyright notice,
-this list of conditions and the following disclaimer in the documentation and/or
-other materials provided with the distribution. 
+		<p>The list and specific scopes of individual <a>Technology Committees</a> shall be defined in the Standards <a>Administrative Guidelines</a>.</p>
+      </section>
+	  
+	  <section id='Technology-Committee-Chairs'>
+        <h4>Technology Committee Chairs.</h4>
 
-3. Neither the name of the copyright holder nor the names of its contributors
-may be used to endorse or promote products derived from this software without
-specific prior written permission. 
+        <p><a>Technology Committee</a> Chairs shall be Members that are Active Members of the <a>Society</a> as defined in the <a href="https://www.smpte.org/about/policies-and-governance">Membership Operations Manual</a>. The <a>Standards Vice President</a> shall appoint one or more Chairs for each <a>Technology Committee</a> for a term to run concurrently with the <a>Standards Vice President</a>'s term of office. <a>Technology Committee</a> Chairs shall not serve the same <a>Technology Committee</a> for more than two full consecutive terms. <a>Technology Committee</a> Chairs reaching their term limits, having not received direction to the contrary from the <a>Standards Vice President</a>, shall continue to act as Chairs pro tem of their <a>Technology Committees</a> for a period not to exceed 120 days after the end of the terms.</p>
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-</pre>
-</section>
+<p>In the event of absence of the Chair(s), the <a>Standards Vice President</a> or the Engineering Director may appoint a Chair pro tem on a per-meeting basis. The appointee shall be a Member, an Active Member of the <a>Society</a> and a <a>Participant Member</a> of the <a>Technology Committee</a>.</p>
 
-<section class="annex" id="sec-cc-license-element">
-  <h2>Copyright and License Element</h2>
+<p><a>Technology Committee</a> Chairs shall conduct the business of their <a>Technology Committees</a> according to this Operations Manual and the <a>Administrative Guidelines</a>, specifically:</p>
 
-<p>
-  The following JSON elements present the SMPTE copyright notice and the JSON
-  Schema identifier, a URI, which is useable as a URL to access the JSON Schema
-  Definition Document which presents, among other things, the JSON Document
-  License shown in <a href="#sec-json-doc-license"></a>.
-</p>
+<ol type="a">
+	<li>Calling <a>Technology Committee</a> meetings and distributing draft agendas;</li>
+	<li>Convening and presiding over the meetings and expediently conducting their business;</li>
+	<li>Appointing a <a>Participant Member</a> to serve as the <a>Technology Committee</a> Secretary;</li>
+	<li>Reviewing and distributing timely minutes after receipt from the Secretary;</li>
+	<li>Advancing the work of all assigned <a>Projects</a> in a timely manner, consistent with due process;</li>
+	<li>Facilitating the introduction of new <a>Projects</a>;</li>
+	<li>Recruiting new <a>Technology Committee</a> members;</li>
+	<li>Attempting to ensure a balance of membership within their <a>Technology Committees</a> and their <a>Sub Groups</a>; and</li>
+	<li>Leading <a>Liaison</a> communications, as needed.</li>
+</ol>
 
-<pre>"$comment": "Copyright (c), Society of Motion Pictures and Television Engineers. Licensed under BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause.html)."</pre>
+      </section>
+	  
+	  	  <section id='Membership-and-Guests'>
+        <h4>Membership and Guests</h4>
 
-<p>The following example JSON Schema incorporates the above element in
-accordance with <a href="#sec-cc-license-schema-resources"></a>, with the initial
-keyword order recommended in <a href="#sec-keyword-order"></a>.</p>
+        <p>All <a>Technology Committee</a> Members shall be Members (of the Standards Community). In addition, <a>Guests</a> may participate as defined further below.</p>
+		
+			  	  <section id='Categories'>
+        <h4>Categories</h4>
 
-<pre>
-{
-  "$schema": "https://json-schema.org/draft/2020-12/meta/core",
-  "$id": "https://smpte-ra.org/json-schema/2199-1/2022/foo",
-  "$comment": "Copyright (c), Society of Motion Pictures and Television Engineers. Licensed under BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause.html).",
-  "title": "foo",
-  "type": "object",
-  "description": "This is an example schema for a fictitious foo object.",
-  "examples": [
-    {
-      "bar": "zyzx"
-    }
-  ],
-  "properties": {
-    "bar": {
-      "$id": "#bar",
-      "title": "bar",
-      "type": "string",
-      "description": "A fictitious short string element.",
-      "minLength":1,
-      "maxLength":4
-    }
-  },
-  "required": [ "bar" ]
-}  
-</pre>
+        <p><a>Technology Committee</a> Members are Members who also meet the eligibility requirements defined below and maintain their membership until termination. There are two categories of membership for <a>Technology Committees</a>: <a>Participant Member</a> and <a>Observer Member</a>. There also may be <a>Guests</a> present.</p>
+		
+		
+		<section id='Participant-Member'>
+        <h4><dfn data-lt="Participant Member|Participant Members">Participant Member</dfn></h4>
+
+        <p>A <a>Participant Member</a> is a person who commits to active contribution to the work of the <a>Technology Committee</a>. A <a>Participant Member</a> has voting rights and obligations with full access to all work in process and <a>Sub Group</a> activity. <a>Participant Members</a> must maintain eligibility requirements as specified in section <a href="#Eligibility"></a>. No alternate is permitted to act on behalf of a <a>Participant Member</a>.</p>
+
+		</section>	
+		
+		<section id='Observer-Member'>
+        <h4><dfn data-lt="Observer Member|Observer Members">Observer Member</dfn></h4>
+
+        <p>An <a>Observer Member</a> is a person who has an interest in the work and may participate actively in the work of the <a>Technology Committee</a> and/or its <a>Sub Groups</a>, with full access to all work in process. An <a>Observer Member</a> is encouraged to submit <a>Ballot</a> Comments but has no voting rights.</p>
+
+	</section>	
+	
+		<section id='Guests'>
+        <h4><dfn data-lt="Guest|Guests">Guests</dfn></h4>
+
+<p><a>Guests</a> are persons present at the invitation of the Chair on a per meeting basis, or for longer terms with the approval of the <a>Standards Vice President</a>. <a>Guests</a> are not Members and are not subject to the <a>Participation Fee</a>. However, <a>Guests</a> are subject to the Participation Agreement, the <a>Society</a> Code of Conduct as defined in the <a href="https://www.smpte.org/about/policies-and-governance">Membership Operations Manual</a> and the provisions of this Standards Operating Manual.</p>
+	</section>	
+	
+      </section>
+	  
+<section id='Eligibility'>
+        <h3>Eligibility</h3>
+
+<p><a>Technology Committee</a> membership is open to all Members who have an interest in the work of a <a>Technology Committee</a>.</p>
+
+<p>All Members join a <a>Technology Committee</a> as <a>Observer Members</a>. <a>Observer Members</a> may apply to become <a>Participant Members</a> at any time, provided that they meet the requirements following below. <a>Observer Members</a> requesting Participant status in a <a>Technology Committee</a> must previously have attended at least one meeting of the <a>Technology Committee</a> within the previous 12 months and not have had their status in the <a>Technology Committee</a> changed to <a>Observer Member</a> within the preceding 12 months as a result of the revert action described in section <a href="#Maintenance"></a>.</p>
+
+<p><a>Technology Committee</a> Chairs may waive the eligibility requirement for individual <a>Participant Members</a> in exceptional cases.</p>
+
+<p>Requests to become a <a>Participant Member</a> shall be approved by the <a>Technology Committee</a> Chair as soon as possible after the request is made, provided the eligibility requirements are met and it is at least 30 days prior to a meeting of the <a>Technology Committee</a>.  In such case, the change to <a>Participant Member</a> status shall be made as soon as possible following the <a>Technology Committee</a> meeting.</p>	  
+	  
+      </section>
+	  
+<section id='Maintenance'>
+        <h3>Maintenance</h3>
+
+<p>Membership in a <a>Technology Committee</a> shall be maintained as long as a Member meets the eligibility requirements described above.</p>
+
+<p>In addition, <a>Participant Members</a>, in order to retain their status, shall not miss more than two meetings in a row and shall not fail to vote on more than three <a>Written Votes</a> in a row. When determining "in a row," the <a>Ballot</a> issue date shall be used. When several <a>Ballots</a> are issued on the same day, the sequence numbers assigned shall be used. If these criteria are not met, <a>Participant Member</a> status shall revert to <a>Observer Member</a> status.</p>
+
+<p>Approximately thirty days before all meetings and within 14 days following all meetings, the <a>Technology Committee</a> Chairs shall Review the meeting attendance and voting history of all <a>Technology Committee</a> Members and adjust the membership roster accordingly. <a>Technology Committee</a> Chairs may waive the conversion of specific individuals to <a>Observer Member</a> status in exceptional cases. The <a>Technology Committee</a> Chairs shall inform the <a>Director of Engineering</a> and the <a>Standards Vice President</a> of such waivers, which shall stand at the pleasure of the <a>Standards Vice President</a>. </p>
+
+<p><a>Technology Committee</a> Chairs shall notify affected members and the <a>Director of Engineering</a> when a change has occurred and shall inform those members of their right to apply for <a>Participant Member</a> status again in one year.</p>
+
+<p>All members shall promptly notify the <a>Director of Engineering</a> of any changes in their contact information.</p>
+ 
+ 
+      </section>
+<section id='Termination'>
+        <h3>Termination</h3>
+
+<p>Technology Committee Members may terminate their memberships in a Technology Committee at any time with notice to the Technology Committee Chair. </p>
+      </section>
+	  
+      </section>
+	  
+<section id='Membership-and-Consensus-Bodies'>
+        <h3>Membership and Consensus Bodies</h3>
+
+<p>The <dfn data-lt="Membership Body">Membership Body</dfn> for a meeting shall be the Members of the roster as of 30 days prior to the meeting.</p>
+
+<p>The <dfn data-lt="Consensus Body">Consensus Body</dfn> for a meeting and for all actions taken therein shall be all <a>Participant Members</a> who are present (including those who are present by electronic means). The <a>Consensus Body</a> for <a>Written Votes</a> between meetings shall be the <a>Participant Members</a> at the time the <a>Written Vote</a> is issued.</p>
+
+      </section>
+
+<section id='Balance-of-Membership'>
+        <h3>Balance of Membership</h3>
+
+<p><a>Technology Committee</a> Chairs shall endeavor to maintain a balance of <a>Interest Groups</a> in their <a>Technology Committees</a> among the <a>Participant Members</a>. One’s <dfn data-lt="Interest Group|Interest Groups">Interest Group</dfn> is determined from a stated company affiliation or an explicit declaration, at the option of the <a>Participant Member</a>. The <a>Interest Groups</a> are defined to be one of:</p>
+
+<ol type="a">
+	<li> <dfn data-lt="Producer|Producers">Producer</dfn> - one who manufactures products or who provides services;</li>
+	<li><dfn data-lt="User|Users">User</dfn> - one who purchases or uses the manufactured products or the services;</li>
+	<li><a>General Interest</a></li>
+</ol>
+      </section>	
+
+<section id='TC-Procedures'>
+        <h3>Procedures</h3>
+
+<p>The <a>Technology Committees</a> shall adhere to the following additional procedures:</p>
+
+<ol type="a">
+	<li><a>Technology Committees</a> shall work to advance all approved <a>Projects</a>.</li>
+	<li>The <a>Director of Engineering</a> shall provide necessary <a>Ballot</a> and other data on <a>Technology Committee</a> <a>Projects</a>.</li>
+	<li><a>Technology Committees</a> shall meet in person not less than once per year and otherwise as needed and convened by their Chairs in person or by electronic means.</li>
+</ol>
+
+      </section>	
 
 </section>
 
-<section id="sec-bibliographic-references">
-  <ul>
-    <li><cite id="bib-draft-bhutton-json-schema-00">IETF
-    draft-bhutton-json-schema-00</cite>, Wright, A., H. Andrews; B. Hutton, G.
-    Dennis, "JSON Schema: A Media Type for Describing JSON Documents", Work in
-    Progress, December 8, 2020,
-    https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-00
-    </li>
-  </ul>
+      <section id='Sub-Groups'>
+	  <h3> <dfn data-lt="Sub Group|Sub Groups">Sub Groups</dfn></h3>
+	  
+      <section id='Purpose-and-Scope'>
+        <h4>Purpose and Scope</h4>
+
+        <p><a>Sub Groups</a> are formed to perform preliminary investigations or studies, to draft documents, to make recommendations, or to perform specific administrative or <a>Liaison</a> functions.</p>
+
+<p><a>Sub Groups</a> are established to expedite and organize the functioning of their parent Groups. <a>Sub Groups</a> include <a>Working Groups</a>, <a>Study Groups</a>, <a>Task Forces</a>, <a>Drafting Groups</a>, and <a>Ad Hoc Groups</a>.</p>
+
+<p><a>Ad Hoc Groups</a> shall not be assigned <a>Projects</a>; all other <a>Sub Groups</a> shall perform work on one or more <a>Projects</a>.</p>
+      </section>
+	  
+	   <section id='Membership'>
+        <h4>Membership</h4>
+
+        <p>Normally, membership in a <a>Sub Group</a> is open to all members of the parent Group. However, as all work of a <a>Sub Group</a> will be considered later by a <a>Technology Committee</a>, <a>Sub Group</a> membership may be restricted with the prior approval of the <a>Standards Vice President</a>.</p>
+
+<p><a>Sub Groups</a> may seek participation by experts or other interested parties who are not Members. Such participation shall be at the discretion of the Chair of the <a>Sub Group</a> and the <a>Standards Vice President</a> and should be permitted only when a contribution is needed from someone who would not be expected to join the Standards Community. All such participants shall submit Statements of Participation and shall agree to abide by the requirements of this Standards Operations Manual.</p>
+
+      </section>
+	  
+	  	   <section id='Membership-Procedures'>
+        <h4>Procedures</h4>
+
+       <p>A <a>Sub Group</a> shall be formed and terminated by the Chair of the parent Group in consultation with the parent Group. The formation and termination of a <a>Sub Group</a> shall be recorded in the minutes of the parent Group.</p>
+
+<p><a>Sub Groups</a> are encouraged, but not required, to follow the same requirements for meeting notices and agendas as <a>Technology Committees</a>.  A <a>Sub Group</a> may adopt less formal procedures and short notice periods provided there is <a>Consensus</a> of the membership of the <a>Sub Group</a>.</p>
+
+<p>Similarly, meeting reports may be less formal, but—particularly where an aggressive meeting schedule means that not all members of the <a>Sub Group</a> can attend all meetings— it is essential that meeting outcomes be reported accurately and promptly.</p>
+
+<p>Generally, a <a>Sub Group</a> is expected to achieve Consensus on recommendations to its parent Group. In cases in which there is no <a>Consensus</a> and the <a>Sub Group</a> Chair determines that Consensus is unlikely to be reached, the Chair shall refer the matter to the parent Group for guidance. The parent Group shall consider arguments representing all opinions on the matter for which the <a>Sub Group</a> cannot reach <a>Consensus</a> and, where appropriate, shall attempt to reach <a>Consensus</a> and to instruct the <a>Sub Group</a> accordingly.</p>
+
+<p>All members of a <a>Sub Group</a> have equal status and may participate in all activities of the <a>Sub Group</a>, including <a>Consensus</a> determination.</p>
+      </section>
+	  
+	 <section id='Task-Force'>
+        <h4><dfn data-lt="Task Force|Task Forces">Task Force</dfn></h4>
+
+ <p>A <a>Task Force</a> is formed to coordinate specific programs that affect more than one <a>Technology Committee</a> or to establish joint activities with groups outside of the <a>Society</a> that are concerned with long term strategic issues. <a>Task Forces</a> shall be formed only by the <a>Standards Committee</a>.</p>
+      </section>	  
+	  
+	 <section id='Working-Group'>
+        <h4><dfn data-lt="Working Group|Working Groups">Working Group</dfn></h4>
+
+<p><a>Working Groups</a> are usually formed for more complex, long-term work and for managing multiple, related <a>Projects</a>. A <a>Working Group</a> shall be formed only by a <a>Technology Committee</a>. A Scope that clearly identifies the specific area of technology to be addressed by the <a>Working Group</a> shall be approved by <a>Consensus</a> of the <a>Technology Committee</a>. A <a>Working Group</a> should follow the same requirements for meeting notices, agendas and minutes as <a>Technology Committees</a>.</p>
+      </section>	
+
+	 <section id='Study-Group'>
+        <h4><dfn data-lt="Study Group|Study Groups">Study Group</dfn></h4>
+
+<p>A <a>Study Group</a> is formed to examine a system or technology. <a>Study Groups</a> shall be formed only by the <a>Standards Committee</a> or a <a>Technology Committee</a>. The specific role of a <a>Study Group</a> is to prepare reports to its parent Group and/or to <a>Society</a> membership through publication in the Journal and/or presentation at SMPTE Conferences. Reports of a <a>Study Group</a> shall be approved by its parent Group and the <a>Standards Vice President</a> prior to publication or presentation. When studies indicate that standardization is needed, a <a>Study Group</a> shall make a suitable recommendation to its parent Group.</p>      
+</section>	
+
+	 <section id='Drafting-Group'>
+        <h4><dfn data-lt="Drafting Group|Drafting Groups">Drafting Group</dfn></h4>
+<p>A <a>Drafting Group</a> is formed to expedite the work of its parent Group by preparing specific documents. This may include the preparation of <a>Working Draft</a> documents for consideration by the parent Group. <a>Drafting Groups</a> may be formed by any Group other than an <a>Ad Hoc Group</a> or another <a>Drafting Group</a>.</p>
+
+</section>	
+
+	 <section id='Ad-Hoc-Group'>
+        <h4><dfn data-lt="Ad Hoc Group|Ad Hoc Groups">Ad Hoc Group</dfn></h4>
+        <p>An <a>Ad Hoc Group</a> is transient in nature and formed to prepare brief informal reports to its parent Group on a narrow topic. An <a>Ad Hoc Group</a> shall exist only between two successive meetings of the parent Group. An <a>Ad Hoc Group</a> may be formed by any Group other than another <a>Ad Hoc Group</a>.</p>
+
+
+</section>	
+
+
+      </section>
 </section>
+     
+
+    <section id='Meeting-Procedures'>
+      <h2>Meeting Procedures</h2>
+	  
+	  <section id='Meetings-General'>
+      <h3>General</h3>
+
+	<p>All meetings shall be conducted according to the following procedures:</p>
+	
+	<ol type="a">
+
+<li>All <a>Technology Committees</a> shall conduct business in accordance with the provisions of this Standards Operations Manual and the <a>Administrative Guidelines</a>. For matters not covered by these documents, "<i>Robert's Rules of Order Newly Revised</i>" (latest edition) shall apply. All <a>Technology Committee</a> Chairs are required to be familiar with Robert's Rules.</li>
+
+<li>The <a>Technology Committees</a> are permitted to have multiple Chairs, but at each meeting only one Chair shall act as the meeting Chair. </li>
+
+<li>Chairs should make use of electronic meeting tools (e.g. phone bridges) when available. When facilities are provided for meeting participation by telephone or other electronic means, <a>Technology Committee</a> Members and <a>Guests</a> so participating shall be considered to be present as if they were physically present, including for the determination of <a>Quorum</a> and maintenance of membership.</li>
+
+<li>At least 720 hours (30 days) before the scheduled start time of a meeting, the meeting Chair shall distribute a meeting call and a draft agenda. Meeting calls shall include the start time of the meeting and should include an estimated end time. When the start time may be impacted by other meetings scheduled earlier on the same day, the meeting call should indicate any potential for a variance. The meeting Chair shall make a reasonable attempt to notify the <a>Membership Body</a> of any variance on the day of the meeting. Meetings shall not convene before their announced times (as amended within any notified variance), but may convene significantly after their announced times on the same day. There is no requirement that a meeting end at any specific time, even if an estimated time is provided.</li>
+
+<li>Unless otherwise specifically stated: a) US Eastern Time (as modified by Daylight Saving Time at the current SMPTE Home Office location) shall be used; and b) when only a day is prescribed, deadlines shall be at 23:59:59 on that day.</li>
+
+<li>An agenda, minutes, or contribution document is "distributed" if:
+
+<ul>
+	<li>it is emailed as an attachment to the official Group email list; or</li>
+	<li>it is deposited on an SMPTE sanctioned Internet server with a pointer sent by email as above; or</li>
+	<li>notice is provided by directly contacting each member of the Group.</li>
+</ul>
+
+</li>
+
+<li>Proxies are not permitted.</li>
+
+<li>For all <a>Technology Committees</a>, attendance shall be recorded according to procedures established by the <a>Standards Committee</a>. The attendance list shall be used by the <a>Director of Engineering</a> to establish membership rights as provided herein and to establish agreement to this Standards Operations Manual by all attendees. All attendees shall agree to adhere to the provisions of this Operations Manual. At the discretion of the Chair, other Members may be present in the meeting room without being recorded as meeting attendees.</li>
+
+<li>For all <a>Technology Committees</a>, Minutes shall be prepared by the Secretary and submitted to the Chair no more than 30 days after a meeting. The Chair shall review, modify as required, and approve the Minutes within 14 days of receipt and then shall distribute the Minutes to all members of the Group, with a copy to the <a>Director of Engineering</a> and the <a>Standards Vice President</a>. <a>Guests</a> may request Minutes from the <a>Director of Engineering</a>. Meeting attendees may suggest changes to the minutes. The Minutes, amended if necessary, shall be approved at the next meeting and distributed by the Secretary.</li>
+
+<li>For decisions on significant questions affecting the content of <a>Engineering Documents</a> or motions made in any Group, <a>Consensus</a> shall be obtained. <a>Consensus</a> shall be determined to exist either when there are no objections or when no more than 1/3 of the <a>Participant Members</a> who respond in favor or opposed are opposed. All determinations of <a>Consensus</a> shall be recorded in the Minutes. The use of "straw polls" and other means of achieving <a>Consensus</a> are encouraged.</li>
+
+<li>The <a>Society</a> is a technical and scientific organization and considers the members of its Committees and <a>Sub Groups</a>, and the <a>Guests</a> of its meetings, as individual experts and not necessarily as representatives of their employing organizations. There are, however, occasions during the activities of a Group when a formal industry position would materially contribute to the resolution of a question. On these occasions, a Member or <a>Guest</a> may state that an opinion given is that of an organization, and that opinion may be so recorded. The Chair may, in addition, solicit the views or opinions of appropriate special interests.</li>
+
+<li>On any matter before a <a>Technology Committee</a>, where the <a>Technology Committee</a> Chair considers that any <a>Interest Group</a> or corporate entity has caused, by sponsoring an unreasonable number of <a>Participant Members</a> or otherwise, substantial imbalance, so as to affect the outcome of a specific vote, the <a>Technology Committee</a> Chair shall report this matter to the <a>Standards Committee</a> with a recommendation for appropriate corrective action, such as conducting a <a>Written Vote</a>. The <a>Standards Committee</a>, by a <a>Consensus Vote</a>, may approve the request for a <a>Written Vote</a> to override and replace the vote in question. It may also recommend other corrective action, subject to approval by the <a>Board of Governors</a>.</li>
+
+<li>In order to assist the <a>Technology Committee</a> Chair in determining a balance of interests, <a>Participant Members</a> should declare at the initial roll call of a meeting all entities whose interests they represent at that meeting. Further, if they represent more than one entity, they should declare which entity they represent during each vote (of any kind).</li>
+
+<li>The Secretary may electronically record any meeting for the purpose of assisting in the preparation of the Minutes and subsequent confirmation by the <a>Technology Committee</a>. Once the Minutes have been confirmed, the recording and all copies shall be destroyed within 14 days. No person other than the Secretary shall electronically record, or assist another person in electronically recording any meeting in any form.</li>
+
+</ol>
+</section>
+   
+   <section id='Quorum'>
+      <h3><dfn data-lt="Quorum">Quorum</dfn></h3>
+	 <p>For a <a>Technology Committee</a>, one third of the <a>Participant Members</a> shall constitute a <a>Quorum</a>. Determination of a <a>Quorum</a> shall be conducted at the beginning of each <a>Technology Committee</a> meeting. For <a>Sub Groups</a>, those members present always shall constitute a <a>Quorum</a>.</p>
+
+<p>For any vote, a <a>Quorum</a> must be present, whether or not a <a>Quorum</a> was present at the beginning of the meeting. All votes shall be recorded by the Secretary as a tally of the <a>Participant Members</a>. If, as determined from the tally, a <a>Quorum</a> is no longer present, then the results of the vote shall require confirmation as specified below.</p>
+
+<p>Per Robert’s Rules, temporary absence of one or more <a>Participant Members</a> from the meeting room does not constitute loss of a <a>Quorum</a> and the ability to conduct business, but the <a>Technology Committee</a> Chair shall provide reasonable opportunity for <a>Participant Members</a> to be summoned prior to a vote.</p>
+
+<p>When a <a>Quorum</a> is not present, the meeting may continue; however all decisions shall be confirmed by the <a>Technology Committee</a> either at its next meeting when a <a>Quorum</a> is present or by a <a>Written Vote</a>, at the discretion of the <a>Technology Committee</a> Chair.</p>
+ </section>
+ 
+<section id='Votes'>
+      <h3>Votes</h3>
+
+<p>The Voting within every <a>Technology Committee</a> shall be carried out by the <a>Participant Members</a> only. Comments are welcome from anyone but do not constitute a vote. All questions before a <a>Technology Committee</a> that are resolved by a vote shall be formed so that the response can be clearly made with either a YES or NO answer. Votes shall be initiated by motions. Motions shall be made and seconded only by <a>Participant Members</a>. Each <a>Participant Member</a> present shall cast a vote as either YES, NO or ABSTAIN. All votes related to an <a>Engineering Document</a> shall be recorded for every <a>Participant Member</a> by roll call and tally.</p>
+	
+	<section id='Administrative-Vote'>
+      <h4><dfn data-lt="Administrative Vote">Administrative Vote</dfn></h4>
+	<p>An <a>Administrative Vote</a> is a vote on a matter requiring a simple majority of YES versus NO votes of the <a>Participant Members</a> responding. Lack of a response and ABSTAIN shall be treated identically and not factored into the calculation. A tie vote does not pass.</p>
+	</section>
+	
+		<section id='Consensus-Vote'>
+      <h4><dfn data-lt="Consensus Vote">Consensus Vote</dfn></h4>
+<p>A <a>Consensus Vote</a> is a vote requiring a defined supermajority for approval. The supermajority is defined as follows: Of the <a>Participant Members</a> who vote either Yes or No, there must be at least twice as many Yes votes as No votes. Abstentions shall not be factored into the calculation, nor shall votes not cast.</p>	
+</section>
+  
+ <section id='Written-Vote'>
+      <h4><dfn data-lt="Written Vote|Written Votes">Written Vote</dfn></h4>
+<p>A <a>Written Vote</a> is a vote conducted among the entire <a>Participant Members</a>hip in writing, usually via electronic means. A <a>Written Vote</a> has no Comments.</p>
+</section>
+
+ <section id='Ballot'>
+      <h4><dfn data-lt="Ballot|Ballots">Ballot</dfn></h4>
+<p>A <a>Ballot</a> is a Written <a>Consensus Vote</a> (see criteria of section <a href="#Consensus-Vote"></a>) of a duration that permits Comments to be submitted. All Comments shall subsequently be Resolved as a condition of the <a>Participant Member</a>'s vote.</p>
+
+<p>A <dfn data-lt="Comment|Comments">"Comment"</dfn> is a reference with a statement about what is in error or omission, along with a possible resolution. Redlines of a document, while helpful and supportive to the process, are not acceptable alone as Comments. Redlines, without accompanying written description of the error, omission, or a request for additional features or functionality, need not be considered in the Comment Resolution process. Regardless of the vote cast (YES, NO, or ABSTAIN), Comments may always be submitted. Comments shall be submitted with all NO votes. Any NO vote without Comments shall be discarded and counted as non-responsive. Comments from all sources are to be treated equally.</p>
+
+<p>All Comments shall be submitted in English. Comments should include a proposed resolution.</p>
+
+<p>To be approved, a <a>Ballot</a> shall meet the criteria for a <a>Consensus Vote</a> as set forth in <a href="#Consensus-Vote"></a> above, and also shall have received Yes votes from at least 1/3 of the <a>Participant Members</a>.  The latter criterion is called Numeric <a>Consensus</a>.  <a>Technology Committee</a> Chairs are encouraged to monitor the voting on a <a>Ballot</a> during the course of the <a>Ballot</a> period and to solicit <a>Participant Members</a> to return <a>Ballots</a> if the number of <a>Ballots</a> returned is low.  Such solicitations shall not contain any Comment or opinion on the merits of the document being <a>Ballot</a>ed or on how the <a>Participant Member</a> ought to vote.</p>
+
+<p>The default duration of any <a>Ballot</a> is 5 weeks. By <a>Consensus</a> of the <a>Technology Committee</a>, an alternative duration of no less than three weeks may be selected.</p>
+
+<p>If a <a>Ballot</a> achieves <a>Consensus</a> but fails to achieve Numeric <a>Consensus</a>, the <a>Technology Committee</a> Chair may request the <a>Director of Engineering</a> to extend the <a>Ballot</a> period for two weeks to permit additional <a>Ballots</a> to be returned.  These additional <a>Ballots</a> shall be added to the <a>Ballots</a> received during the duration of the original <a>Ballot</a> and the totals examined to determine whether <a>Consensus</a> still exists and whether Numeric <a>Consensus</a> has been achieved.  During any such extended <a>Ballot</a> period, <a>Participant Members</a> shall have the right and ability both to modify votes originally cast and to submit additional Comments.</p>
+
+</section>
+ 
+  </section>
+
+  
+   <section id='Meeting-Contributions'>
+      <h3>Meeting Contributions</h3>
+	  
+	  <p>Any contribution to a meeting for which <a>Technology Committee</a> action may be taken shall be properly presented to the <a>Technology Committee</a> before any action is taken. A contribution has been properly presented if it is directly related to an item that was present on the draft agenda at least 30 days prior to the meeting and one or more of the following is true:</p>
+
+			<ol type="a">
+			<li>publication to the <a>Technology Committee</a> at least 7 days in advance of the meeting; or</li>
+			<li>presentation to the <a>Technology Committee</a> at the meeting in full (e.g. reading it in its entirety); or</li>
+		
+
+	<li>presentation at the meeting of all changes relative to a version of the contribution that previously met either (a) or (b).</li>
+	</ol>
+ </section>  
+ </section>
+ 
+  <section id='Documents'>
+    <h2>Documents</h2>
+
+    <section id='scope2'>
+      <h3>Scope</h3>
+
+      <p><a>Engineering Documents</a> consist of Standards, <a>Recommended Practices</a>, <a>Engineering Guidelines</a>, and <a>Amendments</a>. SMPTE <a>Engineering Documents</a> may be intended for further submission to the American National Standards Institute (ANSI), the International Telecommunication Union (ITU), the International Standards Organization (ISO), or other standards bodies.</p>
+
+		<p>The <a>Society</a> also publishes <a>Registered Disclosure Documents</a>, but these are not considered to be <a>Engineering Documents</a> and have separately defined procedures. See section <a href="#Registered-Disclosure-Document"></a>.</p>
+
+		<p>In addition, there are <a>Other Documents</a>, including <a>Administrative Guidelines</a>, <a>Advisory Notes</a> and <a>Engineering Reports</a>.</p>
+ </section>
+
+    <section id='Engineering-Documents'>
+      <h3><dfn data-lt="Engineering Document|Engineering Documents">Engineering Documents</dfn></h3>
+      
+	  <section id='Standard'>
+      <h4><dfn data-lt="Standard|Standards">Standard (ST)</dfn></h4>
+
+	<p>A Standard shall be a document that states basic specifications, dimensions, or criteria that are necessary for effective interchange and/or interconnection within the system described. An SMPTE Standard may also define the functions necessary to achieve effective interchange among <a>Users</a>. An SMPTE Standard shall contain <a>Conformance Language</a>.</p>
+
+	  </section>
+	  
+	   <section id='Recommended-Practice'>
+      <h4><dfn data-lt="Recommended Practice|Recommended Practices">Recommended Practice (RP)</dfn></h4>
+
+<p>A <a>Recommended Practice</a> shall be a document that states basic specifications, dimensions, or criteria that are not necessary for effective interchange and/or interconnection but that facilitate implementation of systems. Examples are conformance requirements for <a>Test Materials</a> or measurement methods; constraints on existing specifications, dimensions, criteria, forms; and/or functions within the system described. An SMPTE <a>Recommended Practice</a> may contain <a>Conformance Language</a>.</p>
+	  </section>
+	  
+	  	   <section id='Engineering-Guideline'>
+      <h4><dfn data-lt="Engineering Guideline|Engineering Guidelines">Engineering Guideline (EG)</dfn></h4>
+
+<p>An <a>Engineering Guideline</a> shall be an informative document, often tutorial in nature, which incorporates engineering <a>Consensus</a> on specifications, dimensions, and/or practices. It is intended to guide <a>Users</a> or to provide designs or procedures for <a>Producers</a>. It shall not contain <a>Conformance Language</a>, <a>Normative Text</a>, or <a>Normative References</a>.</p>	  
+</section>
+
+ 	   <section id='Test-Materials'>
+      <h4><dfn data-lt="Test Material|Test Materials">Test Materials</dfn></h4>
+
+<p>Some <a>Engineering Documents</a> may define what are commonly known as SMPTE "<a>Test Materials</a>." These are films, tapes, computer files, and similar materials that facilitate some sort of conformance procedures intended to enhance interoperability. <a>Test Materials</a> are encouraged for complex Standards. While not a document type on their own, they form integral parts of the <a>Engineering Documents</a> to which they relate. <a>Test Materials</a> shall be enabled by, and form part of, <a>Engineering Documents</a>, usually <a>Recommended Practices</a>. Changes to <a>Test Materials</a> shall follow the processes applicable to their related prose document elements. That is, when <a>Test Materials</a> must be modified, their associated <a>Recommended Practices</a> shall be revised or amended following the appropriate procedures herein, even if the prose of the <a>Recommended Practice</a> is not altered.  Third party <a>Test Materials</a>, which may be sold by SMPTE, are not considered part of SMPTE <a>Engineering Documents</a>.</p>
+</section>
+
+   <section id='Registers'>
+      <h4><dfn data-lt="Register|Registers">Registers</dfn></h4>
+
+<p><a>Engineering Documents</a> may include tables intended to be filled in over time. A <a>Register</a> is a table that is published in a medium more convenient for updating (e.g., an online database).</p>
+
+<p><a>Engineering Documents</a> may provide criteria for adding, changing and deleting table entries.</p>
+
+<p>An <dfn data-lt="Administrative Register">Administrative Register</dfn> is a <a>Register</a> for which the criteria for adding, changing and deleting are specified in an <a>Engineering Document</a> and changes to the Register do not involve the <a>Consensus</a> of technical experts. If this requirement is not met, the <a>Director of Engineering</a> may make <a>Revisions</a> to the <a>Register</a>. The <a>Revision</a> of the <a>Engineering Document</a> in all its media and elements must be clearly identified, as it can be altered very frequently.</p>
+
+<p>When criteria for adding, changing and deleting table entries are not specified in the <a>Engineering Document</a>, or the criteria involve the <a>Consensus</a> of technical experts, any alteration shall be subject to the normal <a>Engineering Document</a> process, typically an <a>Amendment</a>.</p>
+
+<p>If <a>Register</a> entries are issued to parties other than the <a>Society</a> itself, then a fee may be charged.</p>
+</section>
+    </section>
+
+    <section id='Modification-of-Engineering-Documents'>
+      <h3>Modification of Engineering Documents</h3>
+
+      <section id='Revision'>
+        <h4><dfn data-lt="Revision|Revisions">Revision</dfn></h4>
+
+<p>A <a>Revision</a> is a Standard, <a>Recommended Practice</a>, or <a>Engineering Guideline</a> document that is to replace a previously published edition. A <a>Revision</a> shall exist only as a work in process and, when published, shall supersede the previous edition.</p>
+      </section>
+	  
+	        <section id='Amendment'>
+        <h4><dfn data-lt="Amendment|Amendments">Amendment</dfn></h4>
+
+<p>An <a>Amendment</a> is a document that modifies the provisions of an existing Standard, <a>Recommended Practice</a>, or <a>Engineering Guideline</a>. An <a>Amendment</a> shall contain only an enumeration of the changes and not the entire document to which it applies. It also shall contain an introductory statement describing the purpose of the change(s). An <a>Amendment</a> may be published as a separate document in which case the current edition of the affected document shall continue to be published until the <a>Amendment</a> is incorporated into a new edition of the affected document.</p>
+      </section>
+    </section>
+
+    <section id='Other-Published-Documents'>
+      <h3><dfn data-lt="Other Documents">Other Published Documents</dfn></h3>
+
+    <section id='Administrative-Guideline'>
+      <h3><dfn data-lt="Administrative Guideline|Administrative Guidelines">Administrative Guidelines (AG)</dfn></h3>
+
+<p><a>Administrative Guidelines</a> shall be prepared from time-to-time to provide extensions to and interpretations of this Standards Operations Manual. <a>Administrative Guidelines</a> may include, but are not limited to, descriptions of Group and meeting procedures, templates for documents, rules and procedures for <a>Registers</a>, etc. All <a>Administrative Guidelines</a> shall be issued by the <a>Standards Committee</a> and shall require a <a>Consensus Vote</a> of the <a>Standards Committee</a> for approval or modification. In the event of a conflict, <a href="https://www.smpte.org/about/bylaws">the Society Bylaws</a>, Operations Manuals or any published <a>Engineering Document</a> shall take precedence over the Standards <a>Administrative Guidelines</a>.</p>
+
+    </section>
+	
+	    <section id='Engineering-Report'>
+      <h3><dfn data-lt="Engineering Report|Engineering Reports">Engineering Report (ER)</dfn></h3>
+
+<p>An <a>Engineering Report</a> is an informative document developed by a <a>Study Group</a>, a <a>Technology Committee</a>, or a <a>Task Force</a> on a topic of interest to the industry. Publication shall be with approval of the <a>Standards Vice President</a>.</p>
+
+    </section>
+	 <section id='Advisory-Note'>
+      <h3><dfn data-lt="Advisory Note|Advisory Notes">Advisory Note (AN)</dfn></h3>
+
+<p>An <a>Advisory Note</a> is a brief informative document developed by <a>Consensus</a> of a <a>Technology Committee</a> detailing an issue before the <a>Technology Committee</a>. An <a>Advisory Note</a> generally should have a limited term benefit to the industry and should typically be  <a>Withdrawn</a> after the issues it describes are resolved. Publication shall be with approval of the <a>Standards Vice President</a>. An <a>Advisory Note</a> shall be  <a>Withdrawn</a> automatically 6 months after initial publication or sooner by <a>Consensus</a> of the developing <a>Technology Committee</a>.</p>
+
+    </section>
+	  </section>
+	
+<section id='Procedures'>
+      <h3>Procedures</h3>
+
+	<section id='Editorial-Revisions'>
+      <h3>Editorial Revisions</h3>
+<p>From time-to-time, it may be brought to the attention of the <a>Director of Engineering</a> that there are editorial errors in a published <a>Engineering Document</a>. At the discretion of the <a>Director of Engineering</a> and in consultation with the Chair of the responsible <a>Technology Committee</a>, the publication may be editorially revised. The document identification shall be changed to reflect the different document.</p>
+
+<p>Upon approval of any <a>Amendment</a>, the <a>Director of Engineering</a> may elect to publish a separate document or may editorially revise the <a>Engineering Document</a> and publish the modified document as a new edition.</p>
+
+	
+  </section>
+  
+  	<section id='Avoidance-of-Proliferation-of-Modifications'>
+      <h3>Avoidance of Proliferation of Modifications</h3>
+<p>No more than 2 separate <a>Amendments</a> shall be published modifying a single published SMPTE <a>Engineering Document</a>. The development of a third such document shall result in publication of a <a>Revision</a> with all <a>Amendments</a> applied. The 5 year Review process also shall cause such a consolidation.</p>
+
+  </section>
+  
+   </section>
+
+	<section id='Criteria-for-Engineering-Documents'>
+      <h3>Criteria for Engineering Documents</h3>
+<p>All SMPTE <a>Engineering Documents</a> shall meet the following criteria:</p>
+
+<ol type="a">
+	<li>Potential for use. There shall be evidence of national or international use or potential national or international use.</li>
+	<li>Conflict. Before a proposal is approved, any recognized significant conflict with an existing national standard, international standard, or <a>Engineering Document</a> shall have been resolved. Due consideration shall have been given to the existence of other <a>Engineering Documents</a> having national or international acceptance in the given field. An alternative to an existing <a>Engineering Document</a> shall not necessarily be considered a conflict.</li>
+	<li>Public interest. There shall not be evidence that the <a>Engineering Document</a> is contrary to the public interest.</li>
+	<li>Fairness. There shall not be evidence that the proposal contains unfair provisions.</li>
+	<li>Technical adequacy. There shall not be evidence of technical inadequacy.</li>
+	<li>Intellectual property. Technical specifications shall comply with the Intellectual Property Policy of this Standards Operations Manual (see <a href="#Intellectual-Property-Confidentiality-Policy"></a>).</li>
+	<li>Comparative Ratings. The <a>Society</a> shall not become involved in comparative rating of competitive systems or products. Test methods specified in <a>Engineering Documents</a> shall be reasonable and adequate to measure the pertinent characteristics.</li>
+	<li>Purchase specifications. SMPTE <a>Engineering Documents</a> shall not be written as purchase, quality, safety, certification or general design requirements.</li>
+</ol>
+  </section>
+  
+  	<section id='Interpretation-of-Engineering-Documents'>
+      <h3>Interpretation of Engineering Documents</h3>
+	
+	<section id='Commercial-Conformance'>
+      <h3>Commercial Conformance</h3>
+<p>SMPTE shall not give an interpretation as to whether a particular product, process, or procedure conforms or does not conform to a specific <a>Engineering Document</a>. Moreover, no person shall have the right or authority to issue such an interpretation in the name of the <a>Society</a>.</p>
+  </section>
+  
+  	<section id='Interpretations-Policy'>
+      <h3>Interpretations Policy</h3>
+<p>From time-to-time, interpretations may be requested. All interpretations shall be processed by the responsible <a>Technology Committee</a> and approved by <a>Consensus Vote</a>. Approved responses shall be sent in a timely manner to the requestor, detailing the action taken and the interpretation provided, if any. Interpretation requests and responses shall be treated as submitted Comments for the next <a>Revision</a> or Review of the subject <a>Engineering Document</a> unless the <a>Technology Committee</a> determines that more immediate action is required.</p>
+  </section>
+  
+   </section>
+   
+   	<section id='Records'>
+      <h3>Records</h3>
+<p>Records shall be prepared and maintained by the <a>Director of Engineering</a> to provide evidence of compliance with these procedures. Records concerning the processes for new, revised, or reaffirmed <a>Engineering Documents</a> shall be retained at least until the <a>Engineering Documents</a> are next revised, reaffirmed,  <a>Withdrawn</a> or stabilized. Records concerning the withdrawal or stabilization of <a>Engineering Documents</a> shall be retained for at least five years from the date of withdrawal or stabilization.</p>
+  </section>  
+  
+     	<section id='Metric-Policy'>
+      <h3>Metric Policy</h3>
+<p>Units of the International System of Units (SI) shall be the preferred units of measurement in <a>Engineering Documents</a>.</p>
+  </section>  
+  
+       	<section id='Conformance-Language'>
+      <h3><dfn data-lt="Conformance Language">Conformance Language</dfn></h3>
+<p><dfn data-lt="Normative Text">Normative Text</dfn> is that which describes elements of the design that are indispensable or which contains the <a>Conformance Language</a> keywords: "shall," "should," or "may."</p>
+
+<p><dfn data-lt="Informative Text">Informative Text</dfn> is text that is potentially helpful to the <a>User</a>, but not indispensable, and can be removed, changed, or added editorially without affecting interoperability. <a>Informative Text</a> does not contain any conformance keywords.</p>
+
+<p>All text in a Standard, <a>Recommended Practice</a>, or <a>Amendment</a> to either of them is, by default, normative, except: the Introduction, any section explicitly labeled as "Informative" or individual paragraphs that start with "Note:."</p>
+
+<p>The keywords "shall" and "shall not" indicate requirements strictly to be followed in order to conform to the document and from which no deviation is permitted.</p>
+
+<p>The keywords "should" and "should not" indicate that, among several possibilities, one is recommended as particularly suitable, without necessarily mentioning or excluding others; that a certain course of action is preferred but not necessarily required; or that, in the negative form, a certain possibility or course of action is deprecated but not prohibited.</p>
+
+<p>The keywords "may" and "need not" indicate courses of action permissible within the limits of the document.</p>
+
+<p>The keyword “reserved” indicates a provision that is not defined in the document, shall not be used, and may be defined in the future.</p>
+
+<p>The keyword “forbidden” indicates “reserved” and in addition indicates that the provision will never be defined in the future.</p>
+  </section>  
+  
+  </section>
+
+  <section id='Engineering-Document-Development-Procedures'>
+    <h2>Engineering Document Development Procedures</h2>
+
+    <section id='Introduction'>
+      <h3>Introduction</h3>
+
+      <p><a>Engineering Documents</a> are created by a two-stage process – a Development Phase and an Approval Phase. </p>
+
+<p>The Development Phase is conducted by an individual or Group and is relatively informal. The intent of this phase is to engage all interested parties and to permit exchanges of view and iteration of a document without the need for cumbersome record keeping. Nevertheless, due process (see below) needs to be followed to ensure that all relevant views are received and considered. The final step of the Development Phase is to circulate a draft document to the <a>Technology Committee</a> for informal Comment and to further iterate the document in response to inputs received. If the development phase is successful, little change to the document should be necessary in the Approval Phase.</p>
+
+<p>When a document represents the best available outcome of the informal work, the Approval Phase begins. Approval procedures are based on Written <a>Ballots</a> to the <a>Technology Committee</a> and a formal Comment Resolution process, also described below. The Approval Phase permits disposition of Comments by <a>Consensus</a> of the committee, rather than by full agreement and therefore must be fully documented. The Approval Phase forms the formal record of the document.</p>
+    </section>
+
+    <section id='General'>
+      <h3>General</h3>
+
+ <section id='Open-Due-Process'>
+      <h3>Open Due Process</h3>
+
+      <p><a>Technology Committees</a> shall observe the following rules and guidelines:</p>
+
+<ol type="a">
+	<li>Participation shall be open to all parties who are directly and materially affected by the activities in question, without undue financial barriers;</li>
+	<li>Reasonable efforts shall be made to make such parties aware of work that is proposed or underway;</li>
+	<li>All meetings shall be open meetings;</li>
+	<li>The <a>Engineering Document</a> development process shall have a balance of interests and thus not be dominated by any single <a>Interest Group</a>;</li>
+	<li>Consistent procedures shall govern the methods used for <a>Engineering Document</a> development and such procedures shall be available to any interested person;</li>
+	<li>An identifiable, realistic, and readily available appeals method shall be included in the written procedures;</li>
+	<li>Notification of <a>Engineering Document</a> activities shall be announced in suitable media to demonstrate compliance with the requirements of (b);</li>
+	<li>Prompt consideration and acknowledgment shall be given to the written opinions and submissions of all who wish to be heard, including a concerted effort to resolve all expressed objections;</li>
+	<li>Notification shall be given to an objector of the disposition of the objection and the reasons therefore; and</li>
+	<li>The disposition of such opinions and submissions shall be documented.</li>
+</ol>
+    </section>
+    </section>
+
+    <section id='New-Projects'>
+      <h3>New <dfn data-lt="Project|Projects">Projects</dfn></h3>
+
+<p>A <a>Project</a> is an item of work undertaken by a <a>Technology Committee</a> and usually delivers one SMPTE <a>Engineering Document</a> or <a>Registered Disclosure Document</a>.</p>
+
+<p>A <a>Project</a> may be proposed by any individual. The individual should work with the <a>Standards Vice President</a> and appropriate <a>Technology Committee</a> Chair(s) to prepare a <a>Project</a> Proposal as described below.</p>
+
+<p>A <a>Project</a> may be proposed by a member of a <a>Technology Committee</a> to its Chair if the member believes that the <a>Project</a> is within the Scope of that <a>Technology Committee</a>.  If, in consultation with the <a>Technology Committee</a>, the Chair agrees that the proposed <a>Project</a> is within scope, the <a>Project</a> may be proposed to that <a>Technology Committee</a>, subject to the right of the <a>Standards Vice President</a> to change this assignment.  Otherwise, a <a>Project</a> Proposal shall be submitted to the <a>Standards Vice President</a> who will assign the proposal to a <a>Technology Committee</a>.</p>
+
+<p>A <a>Project</a> Proposal shall have one or more <dfn data-lt="Proponent|Proponent">Proponents</dfn>, who are Members agreeing to be actively involved in the <a>Project</a>.</p>
+
+<p>A <a>Project</a> Proposal shall be completed by its <a>Proponent</a>(s) in the form prescribed by the <a>Director of Engineering</a>, and shall include the following <dfn data-lt="Project Summary">Project Summary</dfn> information:</p>
+
+<ul>
+	<li>Problem to be solved and scope of work;</li>
+	<li>Document(s) affected and/or proposed new document(s);</li>
+	<li>Nominated Chair and document editor of the work who are, or will become, <a>Technology Committee</a> Members, and may be the same individual;</li>
+	<li>Except in the case of an <a>Registered Disclosure Document</a>, each <a>Project</a> shall be supported by at least two <a>Technology Committee</a> Members representing different organizations; and</li>
+	<li>Estimated Completion Date.</li>
+</ul>
+
+<p>The proposal shall be submitted to the <a>Technology Committee</a> and to the <a>Standards Committee</a> for a 2-week <a>Project</a> approval review.</p>
+
+<p><a>Technology Committee</a> and <a>Standards Committee</a> Members who object to approval of the <a>Project</a> shall so advise the <a>Director of Engineering</a>, the <a>Standards Vice President</a>, <a>Technology Committee</a> Chair(s) and the <a>Proponents</a> stating the grounds for objection.  The permissible grounds for such objection are:</p>
+
+<ul>
+	<li>That the proposal is missing required information</li>
+	<li>That the <a>Project</a> as proposed cannot result in an <a>Engineering Document</a> that meets the Criteria for <a>Engineering Documents</a> or in a <a>Registered Disclosure Document</a> that meets the requirements defined in section <a href="#Registered-Disclosure-Document"></a>.</li>
+	<li>That the <a>Project</a> is assigned to the wrong <a>Technology Committee</a></li>
+</ul>
+
+<p>Disposition of such objections shall be determined promptly by <a>Administrative Vote</a> of the <a>Standards Committee</a>.</p>
+
+<p><a>Technology Committee</a> and <a>Standards Committee</a> Members are encouraged to offer suggestions for improvement of the Proposal; such suggestions are advisory.  At the conclusion of the <a>Project</a> approval review period, the <a>Project</a> <a>Proponent</a>(s) optionally may amend the <a>Project Summary</a> in the light of suggestions received.  The amended <a>Project Summary</a> shall be published within one week of the close of the review period.</p>
+
+<p>If a <a>Technology Committee</a> or <a>Standards Committee</a> Member believes that substantive changes are required to the Scope of the <a>Project</a>, the Member shall advise the <a>Project</a> <a>Proponent</a>(s) and the <a>Technology Committee</a> Chair(s) in writing within two weeks of the start of the <a>Project</a> approval review, stating precisely the changes proposed.  Absent such notification, the <a>Project</a> is approved, and work may commence. </p>
+
+<p>If changes are proposed, work may continue, but proposed changes to the scope shall be placed on the Agenda for the next meeting of the <a>Technology Committee</a>. Modification of the Scope or cancelation of the <a>Project</a> shall require <a>Consensus</a> of the <a>Technology Committee</a>.  Absent such <a>Consensus</a>, the <a>Project</a> shall continue as initially proposed.</p>
+
+<p>The Technical Committee Chair, in consultation with the Committee, shall assign the <a>Project</a> to a <a>Sub Group</a>, which may be henceforth referred to as the <a>Project</a> Group.  If a new <a>Sub Group</a> is required to accomplish the work, as determined by the <a>Technology Committee</a> Chair, then the <a>Technology Committee</a> Chair shall so inform the <a>Director of Engineering</a>.</p>
+
+<p>All of the steps in processing a <a>Project</a> submission may be conducted either by email or in a meeting of the <a>Technology Committee</a>, at the discretion of the <a>Technology Committee</a> Chair.</p>
+
+    </section>
+
+
+  <section id='Working-Draft-Development'>
+    <h2><dfn data-lt="Working Draft|Working Drafts">Working Draft (WD)</dfn> Development</h2>
+
+<p>Most Projects will create some type of a <a>Working Draft</a>, which is an <a>Engineering Document</a> before it is presented to a <a>Technology Committee</a>. A <a>Working Draft</a> is developed through <a>Consensus</a> of its <a>Project</a> Group. <a>Working Drafts</a> can be revised as necessary by the <a>Project</a> Group.</p>
+
+<p>When the Chair of the <a>Project</a> Group determines, by <a>Consensus</a>, that the WD is complete and ready for consideration by the <a>Technology Committee</a>, then it is submitted to the Chair of the <a>Technology Committee</a>, together with all IP disclosures received. Supporting material such as Comments and responses may be submitted for information, but do not form part of the formal record.</p>
+
+    </section>
+
+    <section id='Committee-Draft-Development'>
+      <h3><dfn data-lt="Committee Draft|Committee Drafts">Committee Draft (CD)</dfn> Development</h3>
+<p>Upon receipt by a <a>Technology Committee</a> Chair of a WD from a <a>Project</a> Group, it shall be distributed promptly by the <a>Technology Committee</a> Chair to the <a>Technology Committee</a>, for a period of 2 weeks, to seek Comments that may improve the document prior to <a>Ballot</a>.</p>
+
+<p>The 2 week pre-<a>Ballot</a> Comment period requirement may be waived by <a>Consensus Vote</a> at a meeting of the <a>Technology Committee</a>.</p>
+
+<p>At the conclusion of the 2 week period, the <a>Project</a> Group shall address all Comments received. Full Comment Resolution is encouraged but not required. Once the <a>Project</a> Group concludes by <a>Consensus</a> that the Comments have been addressed, the document shall be revised as necessary and returned to the <a>Technology Committee</a> Chair.</p>
+
+<p>The document then is considered a <a>Committee Draft</a>.</p>
+
+    </section>
+
+    <section id='Final-Committee-Draft-Development'>
+      <h3><dfn data-lt="Final Committee Draft|Final Committee Drafts">Final Committee Draft (FCD)</dfn> Development</h3>
+
+      <p>When a document achieves <a>Committee Draft</a> status, the <a>Technology Committee</a> Chair shall conduct a <a>Ballot</a> (FCD <a>Ballot</a>) asking the question: “Should this CD be made a <a>Final Committee Draft</a>?” <a>Participant Members</a> should be encouraged to Comment, regardless of their votes, with the understanding that their Comments shall be Resolved before advancing the work. <a>Observer Members</a> also should be encouraged to Comment.</p>
+
+<p>If the FCD <a>Ballot</a> fails, the <a>Project</a> Group shall address all Comments and attempt to resolve the Comments according to the Comment Resolution Procedure described in section <a href="#Comment-Resolution-Process"></a>. If required, full Comment resolution can be achieved by a <a>Disposition Vote</a> (see section <a href="#Disposition-Vote"></a>. The <a>Project</a> Group shall submit the revised document to the <a>Technology Committee</a> for another FCD <a>Ballot</a>.</p>
+
+<p>If the FCD <a>Ballot</a> passes without Comment, the document shall be designated a <a>Draft Publication</a> (DP), and the <a>Technology Committee</a> Chair shall forward the work to the <a>Director of Engineering</a> for <a>Standards Committee</a> Audit and preparation for publication. (See section <a href="#Standards-Committee-Audit"></a>)</p>
+
+<p>If the FCD <a>Ballot</a> passes with Comments, the <a>Project</a> Group shall address all Comments and attempt to resolve all Comments, using the Comment Resolution Procedure described in section <a href="#Comment-Resolution-Process"></a> (including one or more <a>Disposition Votes</a>, if necessary). If the document has been revised to a substantial degree, the <a>Project</a> Group may recommend another FCD <a>Ballot</a>. Consideration should be given to the impact on compliant systems when deciding if the document’s changes are substantial.</p>
+
+    </section>
+
+    <section id='Comment-Resolution-Process'>
+      <h3>Comment Resolution Process</h3>
+
+      <section id='Comment-Resolution-Overview'>
+      <h3>Comment Resolution - Overview</h3>
+
+      <p>To maintain the integrity and efficiency of the document development process, it is essential that there be a complete record of all Comment Resolutions made in response to a <a>Ballot</a>. After every <a>Ballot</a> and prior to further consideration by the <a>Technology Committee</a>, the <a>Project</a> Group responsible for a document shall prepare three items:</p>
+
+<ul>
+	<li>a version of the document clearly showing all the changes, relative to the document that was <a>Ballot</a>ed, proposed in response to the <a>Ballot</a> Comments. The format of this document should be redline/strikeout;</li>
+	<li>a clean version (no redlines) of the document; and</li>
+	<li>a <a>Comment Resolution Record</a>.</li>
+</ul>
+
+<p>These items shall be made available to the <a>Technology Committee</a> and notice sent by email. The responsible <a>Project</a> Group shall consider the proposed resolution; however it is under no obligation to accept the proposed resolution.</p>
+
+    </section>
+	
+	  <section id='Comment-Resolution-Record'>
+      <h3><dfn data-lt="Comment Resolution Record">Comment Resolution Record</dfn></h3>
+
+<p>A <a>Comment Resolution Record</a> shall show each and every <a>Ballot</a> Comment and its proposed resolution. The <a>Society</a>’s electronic <a>Comment Resolution Record</a>, as defined by the <a>Director of Engineering</a>, shall be used as the <a>Comment Resolution Record</a>. The <a>Comment Resolution Record</a> shall contain, at a minimum for every <a>Ballot</a> Comment: the Comment text verbatim, a response indicating generally what was done to address the Comment, and whether or not the Comment was Resolved to the satisfaction of the Commenter. A Comment shall be Resolved if the Commenter has indicated that he/she is satisfied with the response or the <a>Technology Committee</a> has reached disposition by <a>Consensus Vote</a>.</p>
+
+    </section>
+	
+	  <section id='Comment-Resolution'>
+      <h3>Comment Resolution</h3>
+
+<p>Comments may be resolved as individual Comments, several Comments at a time or all Comments in a single Comment Resolution Review period using the process described below.</p>
+
+<p>Following distribution of a revised document and the associated <a>Comment Resolution Record</a> by the <a>Project</a> Group to the Commenter(s), the Commenter(s) shall have a 2 week period in which to consider the response(s) and the changes to the revised document and to indicate whether their Comment(s) have been Resolved. If a Commenter does not accept the proposed resolution, the Commenter shall indicate what specifically should be changed to resolve the Comment(s). During the initial 2 week period, a Commenter may request an extension period of an additional 2 weeks, which shall not be unreasonably denied. Failure of a Commenter to respond in any manner within 2 weeks or failure of the Commenter to indicate specifically why the Comment is not Resolved shall be deemed non-responsive, and the Comment shall be considered Resolved with the agreement of the <a>Technology Committee</a> Chair. If any Comments remain Unresolved, then the <a>Technology Committee</a> shall undertake a <a>Disposition Vote</a> as described below.</p>
+
+<p>When all Comments are Resolved, documented as resolved and the <a>Project</a> Group agrees by <a>Consensus</a> the document is ready for a <a>Technology Committee</a> Pre-DP Review, the required documents shall be forwarded to the <a>Technology Committee</a> Chair(s).</p>
+
+    </section>
+	
+		  <section id='Comment-Records'>
+      <h3>Records</h3>
+
+<p>All revised documents and the <a>Comment Resolution Record</a> for every <a>Ballot</a> shall be maintained in an archive accessible to the <a>Technology Committee</a>.</p>
+
+    </section>
+	
+	
+		  <section id='Late-Comments'>
+      <h3>Late Comments</h3>
+
+<p>Comments may be submitted at any time after a <a>Ballot</a> and prior to publication. These are “Late Comments.” Groups are encouraged to address all Late Comments but are under no obligation to do so. All Comments not addressed should be retained until the next <a>Revision</a> of the document.</p>
+
+    </section>
+	
+    </section>
+
+    <section id='Disposition-Vote'>
+      <h3><dfn data-lt="Disposition Vote|Disposition Votes">Disposition Vote</dfn></h3>
+
+      <p>In the event that a <a>Project</a> Group is unable to resolve all the Comments from a <a>Ballot</a>, it shall develop Consensus recommendations to the <a>Technology Committee</a> for the disposition of all Comments not Resolved and for each Comment shall include the proposed change(s) from the Commenter. The Chair of the <a>Technology Committee</a> then shall conduct a <a>Consensus Vote</a> on the recommendations for the Comments not Resolved (the <a>Disposition Vote</a>). A <a>Disposition Vote</a> shall include the revised document and an abbreviated <a>Comment Resolution Record</a> containing only those Comments that remain not Resolved. The Chair of the <a>Technology Committee</a> may break the Comments and their proposed resolutions into separate, or even "line item," <a>Disposition Votes</a> in order to help advance the work.</p>
+
+<p>The <a>Project</a> or <a>Ballot</a> appearing on the <a>Technology Committee</a> agenda shall be deemed adequate notice of intent to discuss Comments relative to any work in process.</p>
+
+    </section>
+
+    <section id='Draft-Publication'>
+      <h3><dfn data-lt="Draft Publication">Draft Publication</dfn> (DP)</h3>
+
+     <p>When all Comments are Resolved, the <a>Technology Committee</a> Chair shall distribute the required documents to the <a>Technology Committee</a> for a two week Pre-DP Review. The Pre-DP review is followed by a <a>Consensus Vote</a> to elevate the document to <a>Draft Publication</a>. Consideration should be given to the Comments from the pre-DP Review, extent of the changes made, the impact to implementations, and the time transpired since the FCD <a>Ballot</a>. If the <a>Draft Publication</a> vote passes, the <a>Technology Committee</a> Chair shall forward the work to the <a>Director of Engineering</a> for <a>Standards Committee</a> Audit and preparation for publication.</p>
+
+<p>If the <a>Draft Publication</a> Vote fails, the revised document shall be sent for another FCD <a>Ballot</a>.</p>
+    </section>
+
+    <section id='Standards-Committee-Audit'>
+      <h3>Standards Committee Audit</h3>
+
+<p>Prior to <a>Standards Committee</a> Audit, the <a>Director of Engineering</a> shall ensure:</p>
+
+<ol type="a">
+
+<li>The FCD <a>Ballot</a>(s) passed;</li>
+
+<li>The <a>Disposition Vote</a>(s), if issued, passed;</li>
+
+<li>There is no evidence that any <a>Ballot</a> Comments were not Resolved;</li>
+
+<li>The <a>Technology Committee</a> has revised the document according to the <a>Ballot</a> Comments; and</li>
+
+<li>All <a>Normative References</a> meet the requirements of this Operations Manual and any associated <a>Administrative Guidelines</a>.
+
+</li>
+
+</ol>
+
+<p>In parallel with the editorial preparation of the document for publication, the <a>Director of Engineering</a> shall prepare a Process Audit Report for the <a>Standards Committee</a> that includes:</p>
+
+<ul>
+	<li>The type and results of each <a>Ballot</a> and Vote related to the document;</li>
+	<li>The results of <a>Disposition Votes</a> (if any);</li>
+	<li>Confirmation of the existence of a <a>Comment Resolution Record</a> for each <a>Ballot</a> on file at SMPTE Home Office;</li>
+	<li>A list of all <a>Normative References</a>, including their publication status;</li>
+	<li>Copies of all Patent Statements submitted during the document development;</li>
+	<li>Copies of all Patent Statements received relating to the document;</li>
+	<li>A summary of any Appeal(s) concluded or in process;</li>
+	<li>A recommendation as to whether the work was processed correctly; and</li>
+	<li>Notification of pending appeals related to the <a>Project</a> that produced the document.</li>
+</ul>
+
+<p>The <a>Director of Engineering</a> shall issue a 3-week <a>Ballot</a> to the <a>Standards Committee</a> that includes the proposed document and the Process Audit Report. At that time, the <a>Standards Committee</a> shall consider evidence that:</p>
+
+<ul>
+	<li>due process requirements were met;</li>
+	<li><a>Consensus</a> was achieved;</li>
+	<li>the Criteria for <a>Engineering Documents</a> have been met;</li>
+	<li>the <a>Normative References</a> meet the requirements of this Standards Operations Manual;</li>
+	<li>all necessary Patent Statements have been received in acceptable form; and</li>
+	<li>there is no effect of any in-process Appeal(s) upon the timing of the publication</li>
+</ul>
+
+<p>When the <a>Standards Committee</a> <a>Ballot</a> results in Comments (regarding processing by the <a>Technology Committee</a>), the <a>Project</a> shall be returned to the <a>Technology Committee</a> for a response to each Comment. Resolution of its <a>Ballot</a> Comments shall be accomplished by <a>Consensus</a> of the <a>Standards Committee</a>.</p>
+
+<p>Technical Comments shall not be submitted with a <a>Standards Committee</a> <a>Ballot</a>. A <a>Standards Committee</a> Member who has technical Comments to be addressed should propose a new <a>Project</a>, such as an <a>Amendment</a>.</p>
+
+    </section>
+
+    <section id='Final-Publication'>
+      <h3>Publication</h3>
+
+     <p>When the <a>Standards Committee</a> confirms that all procedural requirements have been met and all <a>Standards Committee</a> Comments have been Resolved, then the document shall be published by the <a>Director of Engineering</a>. Prior to publication, the <a>Director of Engineering</a> shall request review of the proposed publication by the <a>Technology Committee</a> Chair to ensure that the correct version of each drawing or table has been incorporated and that editorial changes, if any, have been correctly applied. The <a>Technology Committee</a> Chair should circulate the document to the <a>Project</a> Group Chair, the <a>Proponents</a> and/or the document editor, and may circulate it to others including the <a>Technology Committee</a>.</p>
+
+<p>The <a>Director of Engineering</a> shall provide means for any interested party to submit Comments on the published document, and such Comments shall be available to all <a>Technology Committee</a> Members.</p>
+
+</section>
+
+  <section id='Review-of-Publications'>
+      <h3> Review of Publications</h3>
+
+<p>All new Standards, <a>Recommended Practices</a> and <a>Engineering Guidelines</a> shall undergo the Review process of section <a href="#Engineering-Document-Review"></a> one year from initial publication.</p>
+
+<p>Within 6 months following the 4th anniversary of the publication of each <a>Engineering Document</a> that has not previously been stabilized or  <a>Withdrawn</a>, the <a>Director of Engineering</a> shall submit a copy of the current publication along with a request to the responsible <a>Technology Committee</a> Chair to review the publication according to the Review process of section <a href="#Engineering-Document-Review"></a></p>
+    </section>
+
+    <section id='Submission-to-Other-Standards-Development-Organizations'>
+      <h3>Submission to Other Standards Development Organizations</h3>
+
+     <p>Proposals to submit <a>Engineering Documents</a> to other standards development organizations shall follow the <a>Liaison</a> communication process, with notice to the <a>Director of Engineering</a>. Such documents shall be accompanied by a <a>Liaison</a> statement. Proposals to submit <a>Committee Drafts</a> and <a>Final Committee Drafts</a> also shall require the approval of the responsible <a>Technology Committee</a> Chair and the <a>Standards Vice President</a>. <a>Working Drafts</a> shall not be submitted outside the responsible <a>Technology Committee</a>.</p>
+
+    </section>
+	
+	  <section id='Engineering-Document-Review'>
+      <h3>Engineering Document Review</h3>
+
+<p>The <a>Director of Engineering</a> shall advise the relevant <a>Technology Committee</a> Chair of any documents to be reviewed. The list of such documents shall be added to the next <a>Technology Committee</a> agenda for discussion.</p>
+
+<p>During or following the next <a>Technology Committee</a> meeting, the <a>Technology Committee</a> Chair shall appoint an <a>Ad Hoc Group</a> to review the list of documents and provide recommendations for the disposition of each document.  For each document, the disposition recommended shall be one of the following:</p>
+
+<ul>
+	<li>Reaffirm</li>
+	<li>Reaffirm and Stabilize</li>
+	<li>Revise</li>
+	<li>Withdraw</li>
+	<li>Reassign the document to another <a>Technology Committee</a></li>
+	<li>No recommendation</li>
+</ul>
+
+<p>A document should be Reaffirmed if it is believed to be substantially correct and does not contain harmful or misleading recommendations.</p>
+
+<p>A document should be Stabilized if it meets the criteria for Reaffirmation, is still relevant to technology or practices in use, and need not be subject to future Reviews. It shall have been Reaffirmed at least once before.</p>
+
+<p>A <a>Stable</a> document still shall be made available and offered for sale by the <a>Society</a>, but it shall be prefaced by a cover page explaining its current status.</p>
+
+<p>At any time, a <a>Technology Committee</a> may revise, amend, or otherwise initiate a new <a>Project</a> on a <a>Stable</a> document.</p>
+
+<p>A document should be <a>Withdrawn</a> only if there is a significant possibility of its use causing harm. A <a>Withdrawn</a> document still shall be made available and offered for sale by the <a>Society</a>, but it shall be prefaced by a cover page explaining its current status, including a statement that some or all of the content is no longer endorsed by the <a>Society</a>.</p>
+
+<p>A document should be Revised if it does not meet the criteria for Reaffirmation or Withdrawal.</p>
+
+<p>A document should be Reassigned if it is outside the current Scope of the <a>Technology Committee</a>.</p>
+
+<p>The review group shall present its recommendations to the <a>Technology Committee</a> for its consideration. The <a>Technology Committee</a> shall determine whether to accept the review group’s recommendations by <a>Consensus Vote</a>. If the vote passes, the documents shall be disposed of in accordance with the review group’s recommendations and the procedures for each process. Any documents determined to be outside the <a>Technology Committee</a>’s Scope shall be referred back to the <a>Standards Vice President</a> for reassignment.</p>
+
+<p>If the vote fails, the <a>Technology Committee</a> shall first determine whether any of the documents are out of its current Scope. If any are, these documents shall be referred back to the <a>Standards Vice President</a> for reassignment.</p>
+
+<p>Then, provided no alternative process has been started (such as a new <a>Project</a> to revise it), for each document the <a>Technology Committee</a> Chair shall solicit a motion for a <a>Consensus Vote</a> to determine whether to Reaffirm, or for documents meeting the criteria, whether to Reaffirm and Stabilize it. If the <a>Consensus Vote</a> passes, the document shall be published without <a>Revision</a>, but with a revised date.</p>
+
+<p>If the <a>Consensus Vote</a> fails, the <a>Technology Committee</a> Chair shall solicit a motion in accordance with the procedures in Section <a href="#Engineering-Document-Withdrawal-Process"></a> for a Vote to determine whether to Withdraw it. If the Vote passes, a <a>Ballot</a> to Withdraw the document shall be conducted as prescribed in Section <a href="#Engineering-Document-Withdrawal-Process"></a>.</p>
+
+<p>If the <a>Consensus Vote</a> to Withdraw the document fails, the <a>Technology Committee</a> Chair shall solicit <a>Proponents</a> to Revise the document as a New <a>Project</a> in accordance with the Document Development Process. If <a>Proponents</a> cannot be found, no action shall be required, but the document shall remain on the <a>Technology Committee</a>’s agenda until such time as <a>Proponents</a> can be found to undertake the <a>Revision</a>.</p>
+</section>
+
+    <section id='Engineering-Document-Withdrawal-Process'>
+      <h3>Engineering Document Withdrawal Process</h3>
+
+    <p>A document should be <dfn data-lt="Withdrawn">Withdrawn</dfn> only if there is a significant possibility of its use causing harm. A <a>Withdrawn</a> document still shall be made available and offered for sale by the <a>Society</a>, but it shall be prefaced by a cover page explaining its current status, including a statement that some or all of the content is no longer endorsed by the <a>Society</a>.</p>
+
+<p>Any proposal to Withdraw an <a>Engineering Document</a> shall be accompanied by a brief (approximately one-page) justification to the responsible <a>Technology Committee</a>. The <a>Technology Committee</a> then shall decide by an <a>Administrative Vote</a> whether to conduct a <a>Ballot</a> to Withdraw.</p>
+
+<p>If a <a>Ballot</a> to Withdraw passes, the process shall be audited by the <a>Standards Committee</a>, and the document shall be labeled <a>Withdrawn</a>.</p>
+
+<p>At any time, a <a>Technology Committee</a> may revise, amend, or otherwise initiate a new <a>Project</a> on a <a>Withdrawn</a> document.</p>
+
+    </section>
+	
+ </section>	
+	
+    <section id='Registered-Disclosure-Document'>
+      <h1><dfn data-lt="Registered Disclosure Document|Registered Disclosure Documents">Registered Disclosure Documents</dfn></h1>
+
+    <section id='Sponsor'>
+      <h3>Definition</h3>
+
+   <p>The <a>Society</a> may publish documents of <a>General Interest</a> to the industry that are not <a>Engineering Documents</a>. Such documents are known as <a>Registered Disclosure Documents</a> (RDDs) and do not represent findings, representations, or recommendations by the <a>Society</a>. <a>Registered Disclosure Documents</a> are documents within the scope of interest of the <a>Society</a>, submitted by any entity (the “<a>Sponsor</a>”) that wishes to make a disclosure available to the public and to use the <a>Society</a>’s publication and distribution mechanisms for this purpose. Documents that may be suitable as <a>Registered Disclosure Documents</a> include, but are not limited to, specifications of existing products, instructions for interfacing to products, instructions for controlling products and systems, and descriptions of design approaches intended to encourage design of similar or compatible systems. <a>Registered Disclosure Documents</a> shall not be used as <a>Normative References</a> in <a>Engineering Documents</a>.</p>
+
+	
+  </section>
+	
+   <section id='Criteria'>
+      <h3>Criteria</h3>
+
+<p>All SMPTE <a>Registered Disclosure Documents</a> shall meet the following criteria:</p>
+
+<ol type="a">
+	<li>Public interest - There shall be no evidence that the document is contrary to the public interest.</li>
+	<li>Technical adequacy - There shall be no evidence of technical inadequacy.</li>
+	<li>Comparative ratings - Documents shall not relate to comparative rating of competitive systems or products.</li>
+	<li>No advertising - The documents shall not contain any advertising or marketing content.</li>
+</ol>
+
+	
+  </section>	
+  
+     <section id='Process'>
+      <h3>Process</h3>
+
+   <section id='Initiation'>
+      <h3>Initiation</h3>
+
+<p>Any interested party may request initiation of a new <a>Registered Disclosure Document</a>. A request shall be sent to the <a>Director of Engineering</a> in the form determined by the <a>Director of Engineering</a> together with a release of copyright and the appropriate processing fee. The processing fee shall be determined from time-to-time by the <a>Standards Vice President</a> in consultation with the <a>Director of Engineering</a> and the Financial Vice President and is due and payable prior to work on the document beginning.</p>
+
+	
+  </section>
+  
+    <section id='Format-of-Document'>
+      <h3>Format of Document</h3>
+
+<p>There is no required template or format for the body of a <a>Registered Disclosure Document</a>, but the document should contain technical information, not advertising material. The document shall be supplied to the <a>Director of Engineering</a> in electronic form suitable for publication. The following information should be provided on a cover page(s):</p>
+
+<ul>
+	<li>Name, affiliation, and contact information (including email address) of the person responsible for maintenance of the document.</li>
+	<li>A scope statement indicating the intended purpose of the document.</li>
+	<li>(Optional but recommended) An intellectual property (IP) statement indicating whether known or claimed IP applies to the content of the document and, if appropriate, a declaration as to terms under which <a>Users</a> of the document may have access to the IP.</li>
+</ul>
+	
+  </section>
+  
+      <section id='New-Project-Process'>
+      <h3>New Project Process</h3>
+
+<p>When such a request is received with a completed cover page, the <a>Standards Vice President</a> shall assign the request to the appropriate <a>Technology Committee</a>, which shall create a new Project, as for any new Project. The <a>Technology Committee</a> may form a <a>Sub Group</a>, but need not do so.</p>
+  </section>
+	
+      <section id='Technology-Committee-Ballot'>
+      <h3>Technology Committee Ballot</h3>
+
+<p>After processing by the Group, the document shall be submitted for a <a>Ballot</a> to the <a>Technology Committee</a>. The <a>Ballot</a> question shall be: “Does the document meet the <a>Registered Disclosure Document</a> Criteria, is it technically consistent, and does it provide information sufficient for the intended purpose as stated in its scope?”</p>
+
+<p>Following the <a>Ballot</a>, the <a>Sponsor</a> should contact each person who submitted Comments and attempt to resolve the Comments. Modification of the document shall be at the discretion of the <a>Sponsor</a>. At the discretion of the <a>Standards Vice President</a>, all Comments not Resolved to the satisfaction of the Commenter may be appended to the document and published, together with any explanation the <a>Sponsor</a> may choose to add. If any <a>Technology Committee</a> Member, including the <a>Sponsor</a>, believes that appending particular not Resolved Comments and responses would be beneficial to the industry, the <a>Technology Committee</a> Member may request such action. This request shall be promptly considered by the <a>Technology Committee</a> and a decision rendered by <a>Consensus Vote</a>.</p>
+
+<p>A Member or <a>Guest</a> who has actual knowledge of Intellectual Property essential to the implementation of the document (other than that disclosed by the <a>Sponsor</a>) shall Comment accordingly. If the owner(s) of the Intellectual Property is/are prepared to make a Patent Statement according to section <a href="#Patent-Policy"></a>, one or more Patent Statements should be added to the document.</p>
+
+<p>If Intellectual Property is claimed, other than by the <a>Sponsor</a>, and such Patent Statements cannot be obtained, an additional note describing the claim shall be added to the document.</p>
+
+<p>If the <a>Ballot</a> fails, then the work shall be returned to the <a>Standards Committee</a> for disposition. If the <a>Ballot</a> passes, then the <a>Technology Committee</a> Chair shall forward the revised document, along with all Comments not Resolved and their responses, to the <a>Director of Engineering</a>, and a normal <a>Standards Committee</a> <a>Ballot</a> shall be conducted.</p>
+
+	
+  </section>	
+  
+        <section id='Standards-Committees'>
+      <h3>Standards Committee</h3>
+
+<p>The <a>Director of Engineering</a> shall prepare a normal Process Audit Report (see section <a href="#Standards-Committee-Audit"></a>) on the proposed Registered Disclosure for the <a>Standards Committee</a> and shall issue a <a>Ballot</a> to the <a>Standards Committee</a>. The <a>Standards Committee</a> shall consider evidence that the <a>Technology Committee</a> <a>Ballot</a> processes were followed and that the document meets the <a>Registered Disclosure Document</a> Criteria.</p>
+
+<p><a>Standards Committee</a> YES votes shall be without Comment. NO votes shall state exactly what process was violated and/or which <a>Registered Disclosure Document</a> Criteria were not met. Technical Comments shall be forbidden.</p>
+
+<p>If the <a>Standards Committee</a> <a>Ballot</a> fails, Comments shall be Resolved by <a>Consensus</a> of the <a>Standards Committee</a>. If it is found that <a>Technology Committee</a> process was violated, the document shall be returned to the <a>Technology Committee</a> Chair for resolution and re-<a>Ballot</a>. If the <a>Standards Committee</a> Comments are Resolved by <a>Consensus</a> of the <a>Standards Committee</a> and the <a>Ballot</a> passes, then the <a>Registered Disclosure Document</a> shall proceed to publication.</p>
+
+	
+  </section>	
+  
+          <section id='Publication'>
+      <h3>Publication</h3>
+
+<p>The <a>Director of Engineering</a> shall not make any changes to an approved <a>Registered Disclosure Document</a> before publication, except as provided herein.</p>
+
+<p>The <a>Director of Engineering</a> shall add a cover page indicating the status of the document as an SMPTE <a>Registered Disclosure Document</a> and stating that the document does not represent a finding, representation, or recommendation of the <a>Society</a>. The cover page shall state specifically that SMPTE makes no representation as to the IP status of the <a>Registered Disclosure Document</a> but shall draw attention to any Patent Statement(s) by the <a>Sponsor</a> or others.</p>
+
+<p><a>Registered Disclosure Documents</a> shall be included on appropriate periodic distribution media and also shall be available for purchase from SMPTE Home Office and from the SMPTE website. Pricing of documents shall be determined by the <a>Standards Vice President</a> in consultation with the <a>Director of Engineering</a> and the Financial Vice President. All revenues from sale of <a>Registered Disclosure Documents</a> shall be the property of the <a>Society</a>.</p>
+
+	
+  </section>
+	
+  </section>
+
+            <section id='Revision-and-Amendment'>
+      <h3>Revision and Amendment</h3>
+<p>Upon request from the original <a>Sponsor</a> or its/his/her successor at interest, a published <a>Registered Disclosure Document</a> may undergo a <a>Revision</a> process. The kind of <a>Revision</a> may be of any type applicable to <a>Engineering Documents</a> – <a>Revision</a> or <a>Amendment</a>– using the same tests as provided herein.</p>
+
+<p><a>Revisions</a> and <a>Amendments</a> shall follow the process for new <a>Registered Disclosure Document</a> publication described herein. Additional fees may apply. Editorial <a>Revisions</a> shall follow the process described in section <a href="#Editorial-Revisions"></a>.</p>
+
+	
+  </section>
+  
+              <section id='Review-and-Withdrawal'>
+      <h3>Review and Withdrawal</h3>
+<p><a>Registered Disclosure Documents</a> shall not be subject to the Review process. It is the intent of the <a>Registered Disclosure Document</a> process to provide continued availability of specifications. Withdrawal shall be initiated using the same care as with <a>Engineering Documents</a> and shall follow the normal Withdrawal process, requiring a specific proposal to withdraw the work as described in section <a href="#Engineering-Document-Withdrawal-Process"></a>.</p>
+
+	
+  </section>
+    </section>
+ 
+              <section id='Liaisons-Delegates-and-Rapporteurs'>
+      <h3>Liaisons, Delegates and Rapporteurs</h3>
+
+
+<section id='Delegates-and-Rapporteurs'>
+
+<h3><dfn data-lt="Delegate|Delegates">Delegates</dfn> and <dfn data-lt="Rapporteur|Rapporteurs">Rapporteurs</dfn></h3>
+
+<p>It is sometimes necessary for the <a>Society</a> to be represented as a member of other organizations and send a delegation to participate in the decision-making processes of those organizations. The leader of this delegation shall be a Head of Delegation (HOD) who shall be the sole communicator of the delegation. Additionally, it is sometimes convenient to have a representative present at meetings of other organizations to gather information on engineering and standardization activities, acting only as a facilitator of communications but not presenting an official <a>Society</a> position. This shall be a <a>Rapporteur</a>.</p>
+
+<p>The <a>Delegates</a> and <a>Rapporteurs</a> shall be appointed by the <a>Standards Vice President</a> and shall serve at his/her pleasure for a period not to exceed his/her term. Alternate HODs and <a>Rapporteurs</a> may be appointed by the <a>Standards Vice President</a>.</p>
+
+<p>The list of organizations for which HODs and <a>Rapporteurs</a> have been assigned shall be maintained by the <a>Director of Engineering</a>. Such lists shall be available at each <a>Technology Committee</a> meeting, and anyone serving such a role present at <a>Technology Committee</a> meetings shall identify himself/herself as an HOD or <a>Rapporteur</a>.</p>
+
+<p>An HOD and <a>Delegates</a> are appointed to represent SMPTE in an Organization where the <a>Society</a> has a formal standing (e.g. board member or formal <a>Liaison</a>).  The HOD shall have the flexibility to amend such positions as necessary after consultation with and approval by the <a>Standards Vice President</a>.</p>
+	
+  </section>
+  
+  	      <section id='Liaison'>
+		  <h3><dfn data-lt="Liaison|Liaisons">Liaisons</dfn></h3>
+<p>Formal <a>Society</a> communications to or from external organizations in writing are “<a>Liaisons</a>”.</p>
+
+<p>It is the responsibility of all <a>Delegates</a> and <a>Rapporteurs</a> to facilitate the exchange of information. All HODs should provide periodic meeting summaries to the <a>Standards Committee</a>.</p>
+
+<p>All Liaisons to SMPTE received by any Member or Staff from external organizations shall be communicated promptly to the <a>Standards Committee</a> and the <a>Liaison Group</a>, which shall disseminate the communications as necessary to the <a>Technology Committees</a>.  The  <dfn data-lt="Liaison Group|Liaison Groups">Liaison Group</dfn> is a <a>Sub Group</a> of the <a>Standards Committee</a> whose membership shall be open equally to any Member. <a>Liaison Group</a> members serve for terms concurrent with the <a>Standards Vice President</a> and may be renewed indefinitely at the option of the Member. All <a>Delegates</a> and <a>Rapporteurs</a> shall automatically be members of the <a>Liaison Group</a>.</p>
+
+<p>The Chair of the <a>Liaison Group</a> shall be appointed by the <a>Standards Vice President</a> and shall serve at his/her pleasure for a period not to exceed his/her term.</p>
+
+<p>All formal communications from the <a>Society</a> shall be made in writing and only after approval of the communication has been given by the <a>Standards Vice President</a>, who has the sole authority to revise or veto a <a>Liaison</a> before transmission.</p>
+
+<p>Draft liaisons shall originate from the <a>Standards Vice President</a>, a relevant <a>Technology Committee</a> or the <a>Standards Committee</a>  and are then reviewed in the <a>Liaison Group</a>. This is done by posting to the respective email reflectors or reviewed as a contribution in any normal meeting. The review period should be 2 weeks, but can be longer or shorter as circumstances dictate. In no event shall the review period be less than 3 days. The Chair of the <a>Liaison Group</a> shall work to bring closure to the language and a recommendation to the <a>Standards Vice President</a> for approval.</p>
+
+  </section>
+  </section>	
+
+ <section id='Intellectual-Property-Confidentiality-Policy'>
+      <h3>Intellectual Property & Confidentiality Policy</h3>
+	  
+<section id='Patent-Policy'>
+      <h3>Patent Policy</h3>
+<p><a>Engineering Documents</a> may include technology that is subject to Essential Claims (see section <a href="#Essential-Claims"></a>) but only if all known patent holders are prepared to agree to terms that are “Reasonable and Non-Discriminatory” (RAND) for all Essential Claims. All Engineering Committees and Groups, as described in section <a href="#Standards-Committees-and-Groups"></a>, are entitled to give preference to technologies that are believed to be free of Essential Claims or for which a free-of-charge license will be available, provided any such solution is believed to be technically adequate. A Committee shall not discuss or otherwise consider specific licensing terms for such technologies.</p>
+
+<p>It is important that, whenever possible, Committees are able to make a choice of technology based on all relevant information, including the existence, or potential existence, of any Essential Claims that may encumber a technology under consideration.</p>
+
+<p>This Policy imposes an obligation on all Committee <a>Participant Members</a> and <a>Observer Members</a> (Members) and <a>Guests</a>, in accordance with section <a href="#Declaration-of-Knowledge-of-Relevant-Intellectual-Property"></a>, to notify the <a>Technology Committee</a> Chair, as early as possible in the development process if they are aware, based on their actual personal knowledge, of patents or patent applications, anywhere in the world, that might contain Essential Claims to a technology being proposed for inclusion in an <a>Engineering Document</a>.</p>
+
+<section id='Notice-to-Meetings'>
+      <h3>Notice to Meetings</h3>
+<p>At the start of each meeting the Chair shall read a statement in a form approved by the <a>Standards Committee</a> reminding Members and <a>Guests</a> of the obligations imposed by this Policy.<strong>­­­­­­­­­­­­­­­­</strong></p>
+	
+  </section>
+
+<section id='Essential-Claims'>
+      <h3>Essential Claims</h3>
+<p>An Essential Claim is “essential” to an <a>Engineering Document</a> only if it is necessarily infringed by implementing the <a>Normative Text</a> of that <a>Engineering Document</a> and is “necessarily infringed” only when there is no commercially-reasonable non-infringing alternative for implementing the <a>Engineering Document</a>.  Essential Claims to an <a>Engineering Document</a> exclude those essential to enabling technologies, which are those technologies that may be necessary to make or use any implementations but are not expressly set forth in the <a>Engineering Document</a>.  Essential Claims to an <a>Engineering Document</a> also exclude claims essential to any <a>Normative Reference</a> included in the <a>Engineering Document</a>.</p>
+	
+  </section>
+
+  <section id='Patent-Statement-to-Accompany-Engineering-Document-Submission-from-External-Organizations'>
+      <h3>Patent Statement to Accompany Engineering Document Submission from External Organizations</h3>
+<p>A completed SMPTE Patent Statement is required when a draft new <a>Engineering Document</a> is submitted to SMPTE on behalf of a company or other outside organization. The Patent Statement shall be made by the company or organization using the form approved by the <a>Standards Committee</a> and shall include the information required on that form.</p>
+
+<p>A <a>Technology Committee</a> may agree by <a>Administrative Vote</a> to consider a draft document, or contribution to a draft document, without a Patent Statement, provided assurance is received from the submitter that the Patent Statement will be provided within 45 days.  If no Patent Statement is received within 45 days of the submission, the <a>Technology Committee</a> Chair shall inform the <a>Standards Vice President</a>, who may suspend work on the submission.</p>
+
+<p>A Member or <a>Guest</a> making any contribution to the <a>Normative Text</a> of a proposed <a>Engineering Document</a> shall provide any declaration required under section <a href="#Declaration-of-Knowledge-of-Relevant-Intellectual-Property"></a>.</p>
+
+  </section>
+
+  <section id='Declaration-of-Knowledge-of-Relevant-Intellectual-Property'>
+      <h3>Declaration of Knowledge of Relevant Intellectual Property</h3>
+<p>This Policy imposes an obligation on all Members and <a>Guests</a> to notify the <a>Technology Committee</a> Chair, as early as possible in the development process, if they are aware, based on their actual personal knowledge, of patents or patent applications that might contain Essential Claims to a technology being proposed for inclusion in an <a>Engineering Document</a>.</p>
+
+<p>The requirement to notify the <a>Technology Committee</a> Chair of actual personal knowledge of actual or potential Essential Claims is an ongoing obligation that begins with becoming a <a>Participant Member</a> or <a>Observer Member</a> of a <a>Technology Committee</a>, or attending a meeting as a <a>Guest</a>, and continues through any form of participation in the work or proceedings of the <a>Technology Committee</a>, including any form of participation by electronic means such as receipt of emails. Any required notice shall be given as soon as practically possible and in all cases shall be given within 45 days after the knowledge is obtained and in advance of any vote on the <a>Engineering Document</a>. The notice shall be either in the form of a verbal statement at a meeting, which shall be recorded in the minutes of the meeting, or in written form to the Chair of the responsible <a>Technology Committee</a>.  The notice shall include all relevant information available to the Member or <a>Guest</a>, such as patent or application number(s) and owner of the intellectual property, and shall identify the part(s) of the <a>Engineering Document</a> believed to be subject to Essential Claims. </p>
+
+<p>The receipt of such a notice shall create a <a>Technology Committee</a> action item for the <a>Director of Engineering</a>, who shall follow the procedures of section <a href="#Inquiry-to-Possible-Patent-Holders"></a> to solicit a Patent Statement from the reported owner of the intellectual property.</p>
+
+<p>This Policy does not require any patent search and specifically recognizes that sponsorship of a Member or <a>Guest</a> does not create any obligation to perform a patent search.</p>
+
+<p>This Policy recognizes that all Members and <a>Guests</a> act as individuals and that obligations imposed by this Operations Manual apply to the Member or <a>Guest</a> rather than to any sponsoring organization. For this reason, the obligation to disclose is created by the actual personal knowledge of the Member or <a>Guest</a> and applies to any potential Essential Claims known to the Member or <a>Guest</a>, whether or not the patent or patent application is owned by a <a>Sponsor</a>. Nothing in this Policy shall impute knowledge of a Member or <a>Guest</a> by reason of employment, sponsorship, or any other association or connection with a patent applicant or holder.</p>
+
+<p>This Policy does not require a Member or <a>Guest</a> to form a legal opinion as to the applicability or enforceability of Essential Claims, but does require a disclosure if the Member or <a>Guest</a> has actual personal knowledge of a patent or patent application that, in the good faith judgment of the Member or <a>Guest</a>, is likely to include Essential Claims to implementation of the proposed <a>Engineering Document</a>.</p>
+
+<p>It is recognized that, on occasion, this obligation may conflict with terms of employment or contractual agreements. Members and <a>Guests</a> shall use reasonable efforts to obtain clearance to declare any relevant Essential Claims. No Member may support the adoption of an <a>Engineering Document</a> or technology while knowing or believing that undeclared Essential Claims exist. A Member or <a>Guest</a> who cannot obtain clearance to reveal an Essential Claim shall notify the <a>Technology Committee</a> Chair that s/he will cease to participate in discussion of, and withdraw from all <a>Ballots</a> concerning, the proposed document.</p>
+	
+  </section>
+
+  <section id='Inquiry-to-Possible-Patent-Holders'>
+      <h3>Inquiry to Possible Patent Holders</h3>
+<p>Following notice of possible Essential Claims, the <a>Director of Engineering</a> shall perform a Patent Inquiry, requesting the reported owner of the intellectual property in question to complete a SMPTE Patent Statement if the owner considers that it does own or control patents or pending applications likely to include Essential Claims for implementation or use of the <a>Engineering Document</a>.  The Patent Statement, in a form approved by the <a>Standards Committee</a>, shall identify whether licensing of any Essential Claims would be available under RAND terms.</p>
+
+<p>If no reply is received within 30 days, the <a>Director of Engineering</a> shall repeat the Patent Inquiry.  If no reply is received within a further 30 days, the <a>Director of Engineering</a> shall report this to the <a>Technology Committee</a> and no further correspondence with the entity shall be required.</p>
+
+  </section>
+  
+    <section id='Conduct-of-Ballots-Votes-and-Audits-with-Associated-IP-Statements'>
+      <h3>Conduct of Ballots, Votes and Audits with Associated IP Statements</h3>
+<p>When an <a>Engineering Document</a> is <a>Ballot</a>ed for elevation to FCD, the <a>Director of Engineering</a> shall issue, in conjunction with the <a>Ballot</a> notification, a “Call for Patents” in a form approved by the <a>Standards Committee</a>.  The FCD <a>Ballot</a> shall reference any Patent Statements already submitted with respect to the proposed <a>Engineering Document</a>. If a notice of possible Essential Claims has been made as described in section <a href="#Declaration-of-Knowledge-of-Relevant-Intellectual-Property"></a>, and if the <a>Director of Engineering</a> has not received an affirmative response to the Patent Inquiry described in section <a href="#Inquiry-to-Possible-Patent-Holders"></a>, then the <a>Director of Engineering</a> shall post a Comment against the FCD <a>Ballot</a> regarding the outstanding Patent Inquiry.</p>
+
+<p>Receipt of a statement in response to a Patent Inquiry shall be noted as a Comment response and shall resolve the Comment unless the Patent Statement indicates that Essential Claims exist and that there is no RAND assurance.  If any entity provides a completed Patent Statement that indicates Essential Claims exist and that there is no RAND assurance, the <a>Technology Committee</a> may either revise the <a>Engineering Document</a> to exclude the protected technology or terminate work on the <a>Engineering Document</a>.  If the <a>Technology Committee</a> considers that the completed Patent Statement may be frivolous or invalid it may choose to seek the direction of the <a>Standards Committee</a>.  If any entity has failed to respond to a Patent Inquiry and there is no suitable alternative technology, these facts shall be noted as a Comment response, and the <a>Technology Committee</a> may choose to retain the technology in question by conducting a <a>Disposition Vote</a> on the Comment.  </p>
+
+<p>All relevant Patent Statements, Patent Inquiries, and <a>Disposition Votes</a> shall be part of the <a>Standards Committee</a> Audit.</p>
+
+  </section>
+  
+    <section id='Patent-Statement-in-Published-Documents'>
+      <h3>Patent Statement in Published Documents</h3>
+<p>All published <a>Engineering Documents</a> shall include an appropriate statement, in a form approved by the <a>Standards Committee</a>; calling attention to the possibility that implementation of the <a>Engineering Document</a> may require the use of Essential Claims.</p>
+  </section>
+  
+    <section id='Transfers-of-Essential-Claims'>
+      <h3>Transfers of Essential Claims</h3>
+<p>(a) Each party submitting a Patent Statement shall agree that it will not transfer, and confirm that it has not transferred, ownership in patents or patent applications having Essential Claims for the purpose of circumventing such party’s obligations under this Policy.</p>
+
+<p>(b) Licensing undertakings made pursuant to this Policy shall be interpreted as encumbrances that bind all successors-in-interest. Recognizing that this interpretation may not be enforceable in all legal jurisdictions, any party who has submitted a licensing undertaking according to this Policy who transfers ownership of  any patent or patent application having Essential Claims subject to such undertaking shall include appropriate provisions in the relevant transfer documents to ensure that the undertaking is binding on the transferee and that the transferee will similarly include appropriate provisions in the event of future transfers with the goal of binding all successors-in-interest. The undertaking shall be interpreted as binding on successors-in-interest regardless of whether such provisions are included in the relevant transfer documents.</p>
+  </section>
+  
+    <section id='Essential-Claims-Revealed-After-Publication'>
+      <h3>Essential Claims Revealed After Publication</h3>
+<p>In the event that an Essential Claim is first revealed by a Member or <a>Guest</a> following adoption and publication of a <a>Engineering Document</a>, the owner or controller of the Essential Claim shall be asked to make a licensing commitment to the Essential Claim in the same manner as if it related to technology proposed for adoption by such Member or <a>Guest</a> during the development of the <a>Engineering Document</a> in question.  If such request is refused, the <a>Engineering Document</a> in question shall be referred back to the relevant <a>Technology Committee</a> for consideration and possible action.</p>
+  </section>
+  
+    <section id='Irrevocability-and-Binding-Nature-of-Commitments'>
+      <h3>Irrevocability and Binding Nature of Commitments</h3>
+<p>All commitments made under this Policy shall be irrevocable, except that the owner of an Essential Claim may include a “reciprocity” or “defensive suspension” term in a license to its Essential Claims.   For purposes of this policy, (a) reciprocity shall mean that a licensor may require a licensee to provide a reciprocal RAND license with respect to any Essential Claim(s) owned by the licensee with respect to the same <a>Engineering Document</a>, and (b) defensive suspension shall mean that a licensor may revoke a license granted to an implementer if that implementer asserts an Essential Claim (other than under RAND license terms) in connection with the same <a>Engineering Document</a> against the licensor or its Affiliates.</p>
+
+<p>An Affiliate of a party shall mean a company or other legal entity which now or, hereafter, controls or is controlled by or is under common control with such party, but any such company or other legal entity shall be deemed to be an Affiliate only as long as such control exists, and for the purposes of this definition, “control” shall mean direct or indirect ownership of more than 50% of the voting power, capital or other securities of the controlled or commonly controlled entity.</p>
+ </section>
+  
+    <section id='Third-Party-Beneficiaries'>
+      <h3>Third Party Beneficiaries</h3>
+<p>In the event that any party brings an infringement action against an implementer of an <a>Engineering Document</a> relating to an Essential Claim(s) under such document with respect to which such Essential Claim owner is under a licensing obligation under this Policy, SMPTE shall have no obligation to intervene, but such implementer shall be entitled to assert that it is a third party beneficiary under such licensing obligation.</p>
+  </section>
+  
+    <section id='Survival-of-Obligations'>
+      <h3>Survival of Obligations</h3>
+			
+<ol type="a">
+<li>Any disclosure or other obligation that any Member or <a>Guest</a> incurs under this Policy shall continue in force after the Member ceases to be a Member, or the <a>Guest</a> ceases to be a participant, for any reason. However, no Member or <a>Guest</a> shall become subject to any new obligation under this Policy after ceasing to be a Member or <a>Guest</a>.</li>
+
+<li>Any licensing obligation incurred by any party under this policy shall continue in force until the expiration of all Patents that include Essential Claims and shall be binding upon successors of ownership and control as specified in <a href="#Transfers-of-Essential-Claims"></a></li>
+
+<li>All persons and entities that are intended third party beneficiaries of rights and obligations incurred under this Policy shall remain entitled to enforce the same, notwithstanding any termination, dissolution or winding up of SMPTE.</li>
+</ol>
+  </section>
+	
+  </section>
+  
+      <section id='Trademark-Policy'>
+      <h3>Trademark Policy</h3>
+<p>Standards and <a>Recommended Practices</a> shall not include proper names, trade names or trademarks of specific companies or organizations (other than SMPTE) or lists of acceptable manufacturers, service provider lists, or similar material in the body of a document or in an annex, except with the explicit approval of the <a>Standards Committee</a>. <a>Engineering Guidelines</a> may include proper names or trademarks if considered necessary, but they should be avoided if possible. <a>Registered Disclosure Documents</a> may include proper names or trademarks.</p>
+
+<p>Entries in a <a>Register</a> may include proper names or trademarks when permitted by the <a>Engineering Document</a> that creates the <a>Register</a>.</p>
+
+<p>Where there is reason to believe that a sole source exists for essential equipment, materials, or services necessary to determine compliance with a standard, it is permissible to supply the name and address of the source in a footnote or informative annex as long as the words “or the equivalent” are added to the reference.</p>
+
+<p>Authors desiring an exception to this trademark policy in a Standard or <a>Recommended Practice</a> are encouraged to seek approval early in the document process. Authors shall first obtain the <a>Consensus</a> of the <a>Technology Committee</a> on the proposal. Upon the <a>Consensus</a> recommendation of the <a>Technology Committee</a>, the <a>Standards Committee</a> shall conduct a <a>Ballot</a> and inform the <a>Technology Committee</a> Chair of the results.</p>
+ </section>
+    
+      <section id='Copyright-Policy'>
+      <h3>Copyright Policy</h3>
+<p>The <a>Society</a> shall own the copyrights of all <a>Engineering Documents</a> and <a>Registered Disclosure Documents</a>, whether in draft or published form. Conditions of use are as specified below.</p>
+
+      <section id='Draft-Engineering-Documents'>
+      <h3>Draft Engineering Documents</h3>
+<p>The draft documents, reports, correspondence and all other work of the <a>Technology Committees</a> and their <a>Sub Groups</a> are SMPTE confidential and shall not be disclosed to anyone who is not a <a>Participant Member</a> or <a>Observer Member</a> of any <a>Technology Committee</a> without the prior approval of the <a>Standards Vice President</a>, except that work in-process documents may be shared with fellow employees or with clients contracting for the member’s participation for the express purpose of technical review and soliciting Comments on the work.</p>
+
+<p>In particular, draft documents shall not be shared with external groups, mail lists, or other Standards Development Organizations without the prior approval of the <a>Standards Vice President</a>. Committee correspondence and other work of a <a>Technology Committee</a> shall not be shared without the prior approval of the <a>Standards Vice President</a>. Communications to external Standards Development Organizations shall follow the processes described in the Liasion section <a href="#Liaisons-Delegates-and-Rapporteurs"></a>.</p>
+
+<p>Electronic or hard copies of in-process documents may be made as necessary for the permitted purposes described above, but members shall employ reasonable efforts to ensure that draft documents are not retained unnecessarily, are not used for any purpose other than document development, and are not in any place or form in which they might be used as a substitute for a published document.</p>
+
+<p>Submission of any document to any <a>Technology Committee</a> for consideration for standardization constitutes a grant to the <a>Society</a> of a permanent, royalty-free, irrevocable, copyright license, including the right to make derivative works. Submission in this context includes contribution to the online servers, meeting file server, or any mail list managed by the <a>Society</a>. Organization(s) submitting such document(s) shall retain ownership to copyright in the materials.  An organization submitting such materials may make derivative works such as technical papers but must not publish or make available by any means any document being, or purporting to be, an alternative to a published <a>Engineering Document</a>. If the <a>Society</a> adopts an alternative proposal or technology, not incorporating any substantial part of the original document such restrictions to the rights of the original copyright owner shall cease to apply.</p>
+
+</section>
+
+    <section id='Published-Engineering-Documents'>
+      <h3>Published Engineering Documents</h3>
+<p>No copying or distribution of any published <a>Engineering Document</a> in electronic or hard-copy form is permitted except as specifically permitted by a license obtained from the <a>Society</a>.</p>
+</section>
+
+    <section id='Registered-Disclosure-Documents'>
+      <h3>Registered Disclosure Documents</h3>
+<p>Submission of a document for adoption as an SMPTE <a>Registered Disclosure Document</a> confers on the <a>Society</a> the right to reproduce and sell (in electronic or hardcopy form) the final version of the document without any compensation to the submitting entity, as if such a document were a published <a>Engineering Document</a>. The submitting entity also may publish the final document in electronic or hard-copy form, provided the document is identical to that adopted by the <a>Society</a>. </p>
+
+<p>The submitting entity also may publish an <a>Amendment</a> to the document, provided it is promptly submitted to the <a>Society</a> for processing as an addition to or replacement of a portion of the <a>Registered Disclosure Document</a> according to the process defined in section 8.3.  If the <a>Society</a> does not approve publication of the amended version, the <a>Registered Disclosure Document</a> shall be  <a>Withdrawn</a>, but SMPTE shall retain the right to make the document available according to the policy for  <a>Withdrawn</a> documents.</p>
+</section>
+
+
+</section>
+
+    <section id='Confidentiality-Policy'>
+      <h2>Confidentiality Policy</h2>
+      <p>All Members and Guests are subject to the Society Confidentiality Policy defined in the Governance Operations Manual.</p>
+<p>The draft documents, reports, correspondence and all other work of the Standards Community are SMPTE Confidential Information and shall not be disclosed to anyone who is not a Member without the prior approval of the <a>Standards Vice President</a>, except that work in process documents may be shared with fellow employees or with clients contracting for the Member’s participation for the express purpose of technical review and soliciting Comments on the work. <a>Guests</a> shall not share any Confidential Material under any circumstances.</p>
+
+<p>In particular, Confidential Information shall not be shared with external groups, mail lists, or other Standards Development Organizations without the prior approval of the <a>Standards Vice President</a>. Committee correspondence and other work of the <a>Technology Committee</a> shall not be shared without the prior approval of the <a>Standards Vice President</a>. Communications to external Standards Development Organizations shall follow the processes described in the Liaison section <a href="#Liaison"></a>.
+<p>Electronic or hard copies of in-process documents may be made as necessary for the permitted purposes described above, but Members shall employ reasonable efforts to ensure that draft documents are not retained unnecessarily, are not used for any purpose other than document development, and are not in any place or form in which they might be used as a substitute for a published document.</p>
+</section>
+	
+  </section>
+  
+      <section id='Normative-References'>
+      <h2><dfn data-lt="Normative Reference|Normative References">Normative References</dfn></h2>
+
+<p>A <a>Normative Reference</a> is an external document that is indispensable to the application of an <a>Engineering Document</a>. Reference may be made to an entire external document or to parts of an external document. <a>Normative References</a> in <a>Engineering Documents</a> shall adhere to the following procedures:</p>
+
+<ol type="a">
+	<li>Except as provided herein, <a>Normative References</a> in SMPTE <a>Engineering Documents</a> only shall be made to organizations and their publication types approved and published as an <a>Administrative Guideline</a> by the <a>Standards Committee</a>.</li>
+	<li>Approved organizations generally are standards development organizations accredited by national or international standards bodies or those industry consortia determined to operate in a manner substantially consistent with this Operations Manual for developing <a>Engineering Documents</a>, specifically in regard to due process and intellectual property.</li>
+	<li>In general, a <a>Normative Reference</a> shall meet the following criteria:
+	
+	<ol type="i">
+
+
+<li>The text shall be publicly available for evaluation without contractual restrictions other than those reasonably intended to restrict duplication and redistribution (which may include the obligation to pay reasonable fees).</li>
+
+<li>The text shall be reasonably expected to be available indefinitely.</li>
+
+<li>The text shall be <a>Stable</a> and under published <a>Revision</a> control.</li>
+</ol>
+</li>
+
+	<li>The <a>Standards Committee</a> shall approve each such standards development organization or industry consortium and its specific types of documents, giving due consideration to the provisions of this section. The list of these organizations and document types shall be published as an <a>Administrative Guideline</a> from time-to-time.</li>
+	<li>The <a>Standards Committee</a> may make an exception to the provisions above on a case-by-case basis if it determines that an exception is in the interest of the industry. Before the <a>Standards Committee</a> considers such an exception, the <a>Technology Committee</a> requesting a reference exception shall provide a statement stating that there are no reasonable and timely available alternative technological approaches that may be accessed in a manner consistent with this policy.</li>
+	<li>Application for an exception or for consideration of a new organization or type of document shall be made in writing to the <a>Standards Committee</a> by the <a>Technology Committee</a> Chair. The <a>Standards Committee</a> shall consider the matter and provide a ruling by <a>Consensus</a> within 60 days of application.</li>
+</ol></section>
+
+      <section id='Appeals-Process'>
+      <h2>Appeals Process</h2>
+
+<p>Any person who believes that his/her dissenting view remains Unresolved regarding a proposed document or any <a>Technology Committee</a> action or inaction shall have the right to appeal the matter at any stage of the document development process, or within one year of the occurrence, in accordance with this Standards Operations Manual and <a href="https://www.smpte.org/sites/default/files/SMPTE_Governance_Ops_Manual_v2_APPROVED.pdf">the Governance Operations Manual</a>.</p>
+
+<p>An appeal shall be made in writing to the <a>Director of Engineering</a> and <a>Standards Vice President</a>, who shall forward the appeal to the <a>Standards Committee</a>. The <a>Standards Committee</a> Chair shall place the item on the agenda for the <a>Standards Committee</a>’s next meeting (which may be by electronic means and no more than 90 days following submission of the appeal), shall develop a <a>Consensus</a> view of the <a>Standards Committee</a>, and shall communicate it to the appellant in writing no later than 10 days after the meeting.</p>
+
+<p>If, in the opinion of the appellant, the appeal has not been satisfactorily Resolved by the <a>Standards Committee</a>, within 30 days after receiving from its Chair notice of the <a>Standards Committee</a>'s decision, a written appeal then may be submitted for appropriate disposition to the <a>Board of Governors</a> in accordance with the appeals process defined in <a href="https://www.smpte.org/sites/default/files/SMPTE_Governance_Ops_Manual_v2_APPROVED.pdf">the Governance Operations Manual</a>.</p>
+
+<p>Any <a>Standards Committee</a> Member who participated directly in the development of any <a>Engineering Document</a> related to the appeal shall not be eligible to participate in the consideration of an appeal.</p>
+
+<p>During an appeal process, any affected <a>Projects</a> and other work of the relevant <a>Technology Committee</a> shall continue.</p>
+</section>
+
+      <section id='Definitions'>
+      <h2>Definitions (Informative)</h2>
+
+	<p>This section provides a summary of defined terms. This is intended to be an aid to the reader only. Refer to the referenced text for the precise definitions and context.</p>  
+	  
+<dl>
+
+<dt><a>Ad Hoc Group</a> (AHG)</dt>
+
+<dd>a transient <a>Sub Group</a>. See <a href="#Ad-Hoc-Group"></a></dd>
+
+<dt><a>Administrative Guideline</a></dt>
+
+<dd>an administrative document that provides extensions and interpretations of this Standards Operations Manual. See section <a href="#Administrative-Guideline"></a></dd>
+
+<dt><a>Administrative Register</a></dt>
+
+<dd>a <a>Register</a> where the criteria for adding, changing and deleting table entries can be implemented without technical experts. See section <a href="#Registers"></a></dd>
+
+<dt><a>Administrative Vote</a></dt>
+
+<dd>a vote on a matter requiring a simple majority of YES versus NO votes of the <a>Participant Members</a>. See section <a href="#Administrative-Vote"></a></dd>
+
+<dt><a>Advisory Note</a> (AN)</dt>
+
+<dd> a brief informative document developed by <a>Consensus</a> of a <a>Technology Committee</a> detailing a problem or work item before the <a>Technology Committee</a>. See section <a href="#Advisory-Note"></a></dd>
+
+<dt><a>Amendment</a></dt>
+
+<dd> a document that modifies the provisions in an existing Standard, <a>Recommended Practice</a>, or <a>Engineering Guideline</a>.  See section <a href="#Amendment"></a></dd>
+
+<dt><a>Ballot</a></dt>
+
+<dd>a <a>Written Vote</a> that may include Comments. See section <a href="#Ballot"></a>.</dd>
+
+<dt><dfn data-lt="Board of Governors">Board of Governors</dfn></dt>
+
+<dd>the elected governing body of SMPTE.</dd>
+
+<dt><a>Comment</a></dt>
+
+<dd>a reference to a document section with a statement about what is in error, an omission, or a request for an additional feature or function. See section <a href="#Ballot"></a>.</dd>
+
+<dt><a>Comment Resolution Record</a></dt>
+
+<dd>an enumeration of every <a>Ballot</a> Comment and its proposed resolution. See section <a href="#Comment-Resolution-Record"></a>.</dd>
+
+<dt><a>Committee Draft</a> (CD)</dt>
+
+<dd>a document state in which a <a>Technology Committee</a> has accepted a <a>Working Draft</a>. See section <a href="#Committee-Draft-Development"></a>.</dd>
+
+<dt><a>Conformance Language</a></dt>
+
+<dd>the precise use of terms to indicate required and optional provisions. See section <a href="#Conformance-Language"></a>.</dd>
+
+<dt><dfn data-lt="Consensus">Consensus</dfn></dt>
+
+<dd>a state of a Group in which either there are no objections to a matter or no more than 1/3 of the <a>Participant Members</a> who responded in favor or opposed were opposed. See section <a href="#Meetings-General"></a>.</dd>
+
+<dt><a>Consensus Body</a></dt>
+
+<dd>the members of a Group that can form a <a>Consensus</a>. See sections <a href="#sec-scope"></a> and <a href="#Membership-and-Consensus-Bodies"></a>.</dd>
+
+<dt><a>Consensus Vote</a></dt>
+
+<dd>a vote where <a>Consensus</a> is required to pass the vote. See section <a href="#Consensus-Vote"></a>.</dd>
+
+<dt><a>Delegate</a></dt>
+
+<dd>an individual appointed by the <a>Standards Vice President</a> to formally communicate <a>Liaison</a> communications with an external entity. See section <a href="#Liaisons-Delegates-and-Rapporteurs"></a>.</dd>
+
+<dt><a>Director of Engineering</a></dt>
+
+<dd>the senior SMPTE Home Office staff position responsible for SMPTE engineering activities. See section <a href="#Director-of-Engineering-and-Home-Office-Engineering-Department"></a>.</dd>
+
+<dt><a>Disposition Vote</a></dt>
+
+<dd>an optional vote following an FCD <a>Ballot</a> when the Comment Resolution process failed to resolve all Comments by <a>Consensus</a>. See section <a href="#Disposition-Vote"></a>.</dd>
+
+<dt><a>Draft Publication</a> (DP)</dt>
+
+<dd>the state of a document after resolution of FCD <a>Ballot</a> Comments. See section <a href="#Draft-Publication"></a>.</dd>
+
+<dt><a>Drafting Group</a> (DG)</dt>
+
+<dd>the Group of people working on one or more <a>Projects</a>, which may be organized informally. See section <a href="#Drafting-Group"></a>.</dd>
+
+<dt><a>Engineering Document</a></dt>
+
+<dd>the collection of types of documents subject to the normal document development process, including Standards, <a>Recommended Practices</a>, <a>Engineering Guidelines</a> and <a>Amendments</a> (i.e., not RDDs). See section <a href="#Engineering-Documents"></a>.</dd>
+
+<dt><a>Engineering Guideline</a> (EG)</dt>
+
+<dd>an informative document, often tutorial in nature, intended to guide <a>Users</a> or to provide designs or procedures for <a>Producers</a>. See section <a href="#Engineering-Guideline"></a>.</dd>
+
+<dt><a>Engineering Report</a></dt>
+
+<dd>an informational finding of a <a>Technology Committee</a>, usually authored by a <a>Study Group</a>. See section <a href="#Engineering-Report"></a>.</dd>
+
+<dt><a>Final Committee Draft</a> (FCD)</dt>
+
+<dd> the state of a document after FCD <a>Ballot</a>. See section <a href="#Final-Committee-Draft-Development"></a>.</dd>
+
+<dt><dfn data-lt="General Interest">General Interest</dfn></dt>
+
+<dd>a Member interest category for those Members who are not <a>Users</a> or <a>Producers</a>. See section <a href="#Balance-of-Membership"></a>.</dd>
+
+<dt>Group</dt>
+
+<dd>the group of people working on a <a>Project</a> (or Projects), which may be organized as an individual, <a>Technology Committee</a> or <a>Sub Group</a>. See section <a href="#New-Projects"></a>.</dd>
+
+<dt><a>Guest</a></dt>
+
+<dd>a non-Member of any <a>Technology Committee</a> present at a meeting. See section <a href="#Categories"></a>.</dd>
+
+<dt><a>Informative Text</a></dt>
+
+<dd>text that is potentially helpful to the <a>User</a>, but not indispensable, and can be removed, changed, or added editorially without affecting interoperability. See section <a href="#Conformance-Language"></a>.</dd>
+
+<dt><a>Interest Group</a></dt>
+
+<dd> an interest category of a Member used to determine balance of interest. See section <a href="#Balance-of-Membership"></a></dd>
+
+<dt><a>Liaison</a></dt>
+
+<dd>formal <a>Society</a> communications to or from external organizations in writing. See section <a href="#Liaisons-Delegates-and-Rapporteurs"></a></dd>
+
+<dt><a>Liaison Group</a></dt>
+
+<dd>the collection of Members interested in developing and receiving formal <a>Liaison</a> communications with an external entity. See section <a href="#Liaisons-Delegates-and-Rapporteurs"></a>.</dd>
+
+<dt>Member</dt>
+
+<dd>a member of the Standards Community. See section <a href="#Standards-Community"></a>.</dd>
+
+<dt><a>Membership Body</a></dt>
+
+<dd>the roster of members for a meeting or <a>Ballot</a>. See section <a href="#Membership-and-Consensus-Bodies"></a>.</dd>
+
+<dt><a>Normative References</a></dt>
+
+<dd>external documents referenced in <a>Normative Text</a> that are indispensable to the <a>User</a>.</dd> See section <a href="#Definitions"></a>.
+
+<dt><a>Normative Text</a></dt>
+
+<dd>document language that describes elements of the design that are indispensable or that contains the <a>Conformance Language</a> keywords: "shall," "should," or "may," See section <a href="#Standards-Committee-Audit"></a>.</dd>
+
+<dt><a>Observer Member</a></dt>
+
+<dd>a member of a <a>Technology Committee</a> who has an interest in its work, may or may not participate actively in the work, and has no voting rights. See section <a href="#Categories"></a>.</dd>
+
+<dt>Operations Manual</dt>
+
+<dd>this document.</dd>
+
+<dt><a>Other Documents</a></dt>
+
+<dd>documents that are not <a>Engineering Documents</a>, such as <a>Engineering Reports</a>, <a>Advisory Notes</a>, etc. See section <a href="#Other-Published-Documents"></a>.</dd>
+
+<dt><a>Participant Member</a></dt>
+
+<dd>a member of a <a>Technology Committee</a> who commits to active contribution to the work of the <a>Technology Committee</a> and has voting rights and obligations. See section <a href="#Categories"></a>.</dd>
+
+<dt><a>Participation Fee</a></dt>
+
+<dd>a fee charged to Members for participation in the Standards Community. The purpose of the fee is to offset part of the cost of standards development. See section <a href="#Standards-Community"></a>.</dd>
+
+<dt><a>Producer</a></dt>
+
+<dd>a member interest category for members who manufacture products or provide services. See section <a href="#Balance-of-Membership"></a>.</dd>
+
+<dt><a>Project</a></dt>
+
+<dd>an item of work (typically a publication) undertaken by a <a>Technology Committee</a> or its <a>Sub Groups</a>. See section <a href="#New-Projects"></a>.</dd>
+
+<dt><a>Project Summary</a></dt>
+
+<dd>the basic information that defines a <a>Project</a>. See section <a href="#New-Projects"></a>.</dd>
+
+<dt><a>Proponent</a></dt>
+
+<dd>Members agreeing to be actively involved in the <a>Project</a>. See section <a href="#New-Projects"></a>.</dd>
+
+<dt><a>Quorum</a></dt>
+
+<dd>the number of Group members required to be present to conduct business. See section <a href="#Quorum"></a>.</dd>
+
+<dt><a>Rapporteur</a></dt>
+
+<dd>an individual appointed by the <a>Standards Vice President</a> and designated to give and receive reports between SMPTE and an external entity. See section <a href="#Liaisons-Delegates-and-Rapporteurs"></a>.</dd>
+
+<dt><a>Recommended Practice</a> (RP)</dt>
+
+<dd>a document that constrains existing specifications and functions that facilitates effective interchange or interconnection. See section <a href="#Recommended-Practice"></a>.</dd>
+
+<dt><a>Register</a></dt>
+
+<dd>a table in an <a>Engineering Document</a> that is published in a medium more convenient for updating (e.g. an online database). See section <a href="#Registers"></a>.</dd>
+
+<dt><a>Registered Disclosure Document</a> (RDD)</dt>
+
+<dd> a document published by SMPTE, of <a>General Interest</a> to the industry, that is not an <a>Engineering Document</a>, and that does not represent findings, representations, or recommendations by the <a>Society</a>. See section <a href="#Registered-Disclosure-Document"></a>.</dd>
+
+<dt><dfn data-lt="Registration Authority">Registration Authority</dfn></dt>
+
+<dd>the SMPTE registry operations as more fully described on the <a>Society</a>’s website.</dd>
+
+<dt>Resolved/Unresolved</dt>
+
+<dd>the state of a Comment in which either the Commenter is satisfied or the <a>Technology Committee</a> has reached a <a>Consensus</a> resolution (Resolved) or not (Unresolved). See section <a href="#Comment-Resolution-Process"></a>.</dd>
+
+<dt>Review</dt>
+
+<dd>the periodic Review process of published <a>Engineering Documents</a>. See <a href="#Engineering-Document-Review"></a>.</dd>
+
+<dt><a>Revision</a></dt>
+
+<dd>a work in process of a Standard, <a>Recommended Practice</a>, or <a>Engineering Guideline</a> document that is being amended in total. See section <a href="#Revision"></a>.</dd>
+
+<dt><dfn data-lt="Society">Society</dfn></dt>
+
+<dd>the <a>Society</a> of Motion Picture and Television Engineers (SMPTE)</dd>
+
+<dt><dfn data-lt="Sponsor">Sponsor</dfn></dt>
+
+<dd>the <a>Proponent</a> of an RDD. See section <a href="#Sponsor"></a>.</dd>
+
+<dt><dfn data-lt="Stable">Stable</dfn></dt>
+
+<dd>a state of a published document in which no further regular Reviews are made. See section <a href="#Engineering-Document-Review"></a>.</dd>
+
+<dt>Standard</dt>
+
+<dd>a document that states basic specifications that are necessary for interchange and interconnection within a system. See section <a href="#Standard"></a>.</dd>
+
+<dt><a>Standards Committee</a> (ST) </dt>
+
+<dd>an appointed Group, consisting mainly of <a>Technology Committee</a> Chairs, that provides oversight of SMPTE Standards processes. See section <a href="#Standards-Committee"></a>.</dd>
+
+<dt>Standards Community Member</dt>
+
+<dd>an Active Member of the <a>Society</a> who meets the requirements for participation in the SMPTE Standards process.  See section <a href="#Standards-Community"></a>.</dd>
+
+<dt><a>Standards Director</a></dt>
+
+<dd>appointed positions reporting to the <a>Standards Vice President</a> and providing support to <a>Technology Committee</a> Chairs. See section <a href="#Standards-Director"></a>.</dd>
+
+<dt><a>Standards Vice President</a></dt>
+
+<dd>an elected officer of SMPTE responsible for engineering activities. See section <a href="#Standards-Vice-President"></a>.</dd>
+
+<dt><a>Study Group</a> (SG)</dt>
+
+<dd>a <a>Sub Group</a> formed to examine a system or technology and to prepare report(s) to its parent Group. See section <a href="#Study-Group"></a>.</dd>
+
+<dt><a>Sub Group</a></dt>
+
+<dd>a direct adjunct Group to a <a>Technology Committee</a>, other <a>Sub Group</a> or the <a>Standards Committee</a> established to expedite and organize the functioning of its parent Group. <a>Sub Groups</a> include <a>Study Groups</a>, <a>Task Forces</a>, and <a>Drafting Groups</a>. See section <a href="#Sub-Groups"></a>.</dd>
+
+<dt><a>Task Force</a></dt>
+
+<dd>a <a>Sub Group</a> formed only by the <a>Standards Committee</a> to coordinate specific programs that affect more than one <a>Technology Committee</a>. See section <a href="#Task-Force"></a>..</dd>
+
+<dt><a>Technology Committee</a> (TC)</dt>
+
+<dd>a due process <a>Consensus Body</a> for all <a>Engineering Documents</a> within a defined scope. See section <a href="#Technology-Committees"></a>.</dd>
+
+<dt><a>Test Materials</a></dt>
+
+<dd>films, tapes, computer files, and similar materials that facilitate some sort of conformance procedures intended to enhance interoperability. See section <a href="#Test-Materials"></a>.</dd>
+
+<dt><a>User</a></dt>
+
+<dd>a member interest category for members who purchase or use manufactured products or services. See section <a href="#Balance-of-Membership"></a>.</dd>
+
+<dt> <a>Withdrawn</a></dt>
+
+<dd>the state of a publication in which a <a>Technology Committee</a> has determined the work has provisions that cause harm to the industry. See section <a href="#Engineering-Document-Withdrawal-Process"></a>.</dd>
+
+<dt><a>Working Draft</a> (WD)</dt>
+
+<dd>the state of an <a>Engineering Document</a> prior to its acceptance by a <a>Technology Committee</a> for processing. See section <a href="#Working-Draft-Development"></a>.</dd>
+
+<dt><a>Working Group</a> (WG)</dt>
+
+<dd>a <a>Sub Group</a> reporting to a <a>Technology Committee</a> for an extended duration. See section <a href="#Task-Force"></a>.</dd>
+
+<dt><a>Written Vote</a></dt>
+
+<dd>a vote put to all <a>Participant Members</a>, in which they are asked to respond formally. See section <a href="#Written-Vote"></a>.</dd>
+
+
+</dl>
+</section>
+
+
+      <section id="sec-bibliographic-references">
+	<ul>
+	  <li><cite id="iso-directives">ISO Directives</cite>
+	    https://www.iso.org/directives
+	  </li>
+	  <li><cite id="smpte-ag-03">SMPTE AG-04-3, Normative References</cite>
+	    https://kws.smpte.org/higherlogic/ws/groups/stds_comm/documents/administra1652/document?document_id=29150
+	  </li>
+	  <li><cite id="smpte-ag-04-1">SMPTE AG-04-1, ST and RP Document Template</cite>
+	    https://kws.smpte.org/higherlogic/ws/groups/stds_comm/documents/administra1652/document?document_id=39213
+	  </li>
+	  <li><cite id="smpte-ag-04-2">SMPTE AG-04-2, EG Document Template</cite>
+	    https://kws.smpte.org/higherlogic/ws/groups/stds_comm/documents/administra1652/document?document_id=39214
+	  </li>
+	  <li><cite id="smpte-om">SMPTE Engineering Operaions Manual</cite>
+	    https://www.smpte.org/sites/default/files/SMPTE%20Standards%20OM%20v3.1.pdf
+	  </li>
+	  <li><cite id="smpte-ag-library">SMPTE <a>Administrative Guidelines</a></cite>
+	    https://kws.smpte.org/higherlogic/ws/groups/stds_comm/documents?folder_id=1652
+	  </li>
+	  <li><cite id="smpte-ag-05">SMPTE-AG-05 XML in Engineering Documents:</cite>
+	    https://kws.smpte.org/higherlogic/ws/groups/stds_comm/documents/administra1652/document?document_id=37432
+	  </li>
+	  <li><cite id="smpte-ag-18">SMPTE AG-18:2018 Metadata Registers Maintenance and Publication</cite>
+	  </li>
+          <li><cite id="smpte-ag-16">SMPTE AG-16:2018 Document Styles</cite>
+	  </li>
+	  <li><cite id="omg-xmi">OMG XMI</cite>
+	    https://www.omg.org/spec/XMI/
+	  </li>
+      </section>
+
+
 
 </body>
-
 </html>
