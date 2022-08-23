@@ -1,6 +1,6 @@
 # SMPTE _OM-05_ - _Standards Operations Manual_
 
-_This repository is *public*._
+_This repository is *private*._
 
 Rendered at [https://smpte.github.io/standards-operations-manual/](https://smpte.github.io/standards-operations-manual/).
 
