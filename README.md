@@ -17,7 +17,7 @@ Future work may include changes to the HTML in this repository.  As of 2022-09-1
 
 ----
 
-Rendered at [SMPTE Standards OM v1.3 HTML](http://smpte-html-draft-dbullock.s3-website-us-west-1.amazonaws.com/standards-operations-manual/index.html)
+Rendered at [SMPTE Standards OM v1.3 HTML](http://smpte-html-draft-dbullock.s3-website-us-west-1.amazonaws.com/standards-operations-manual/doc/main.html)
 
 Published version at [SMPTE Standards OM v1.3 PDF direct download](https://f.hubspotusercontent00.net/hubfs/5253154/SMPTE%20Standards%20OM%20v3.1.pdf)
 
