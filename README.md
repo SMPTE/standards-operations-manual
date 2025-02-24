@@ -16,6 +16,6 @@ Please consult [CONTRIBUTING.md](./CONTRIBUTING.md), [CONFIDENTIALITY.md](./CONF
 
 ----
 
-[Latest draft](http://smpte-pub-exp.s3-website-us-west-1.amazonaws.com/om5/main/)
+[Latest draft](https://doc.smpte-doc.org/standards-operations-manual/main/)
 
 [Published version](https://www.smpte.org/2020-standard-policies-and-governance)
