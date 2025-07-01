@@ -16,4 +16,4 @@ Please consult [CONTRIBUTING.md](./CONTRIBUTING.md), [CONFIDENTIALITY.md](./CONF
 
 ----
 
-[Latest published version](https://doc.smpte-doc.org/standards-operations-manual/main/)
+[Current version](https://doc.smpte-doc.org/standards-operations-manual/main/)
